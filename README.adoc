@@ -13,40 +13,6 @@ This project contains the user interface for Teragrep.
 * dataset exporting
 * version control
 
-== v1.0.0 Release Runbook
-
-The ajs_01 v1.0.0 release runbook is divided into the following sections:
-
-* Notebook management
-* Paragraph execution
-* Results reporting
-* Collarobative editing
-* Errors and notifications
-* Persistance
-* Jobs management
-* Authorization and authentication
-* Other
-
-Tests in each section must complete as expected before the release can be published. 
-
-=== Notebook Management
-
-=== Paragraph Execution
-
-=== Results Reporting
-
-=== Collaborative Editing
-
-=== Errors and Notifications
-
-=== Persistence
-
-=== Jobs Management
-
-=== Authorization and Authentication
-
-=== Other 
-
 == Documentation
 
 See the official documentation on https://docs.teragrep.com[docs.teragrep.com].
