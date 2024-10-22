@@ -1,10 +1,51 @@
 = Teragrep UI
 
-This repository contains the user interface for Teragrep. 
+This project contains the user interface for Teragrep. 
 
 == Features
 
-TBA
+* notebook-based interface
+* automatic graph creation based on search results
+* data exploring tools
+* real-time collaborative script editing
+* shareable notebooks
+* file importing and exporting
+* dataset exporting
+* version control
+
+== v1.0.0 Release Runbook
+
+The ajs_01 v1.0.0 release runbook is divided into the following sections:
+
+* Notebook management
+* Paragraph execution
+* Results reporting
+* Collarobative editing
+* Errors and notifications
+* Persistance
+* Jobs management
+* Authorization and authentication
+* Other
+
+Tests in each section must complete as expected before the release can be published. 
+
+=== Notebook Management
+
+=== Paragraph Execution
+
+=== Results Reporting
+
+=== Collaborative Editing
+
+=== Errors and Notifications
+
+=== Persistence
+
+=== Jobs Management
+
+=== Authorization and Authentication
+
+=== Other 
 
 == Documentation
 
@@ -12,19 +53,13 @@ See the official documentation on https://docs.teragrep.com[docs.teragrep.com].
 
 == How to Set-Up 
 
+You can setup the project as it is but it doesn't contain the back-end implementation. If you want to install ajs_01 with Teragrep back-end, see also the instructions in https://github.com/teragrep/zep_01[zep_01] project. 
+
+If you want to include DPL (Data Processing Language) interpreter in your Teragrep installation, see instructions in https://github.com/teragrep/pth_07[pth_07] project.
+
 === Requirements
 
-You need at least following components with ajs_01: 
-
-|===
-|Component |Description
-
-|https://github.com/teragrep/pth_07[pth_07]
-|Contains Teragrep Data Processing Language (DPL)
-
-|https://github.com/teragrep/zep_01[zep_01]
-|Contains Teragrep back-end
-|===
+TBA
 
 === Installation
 
