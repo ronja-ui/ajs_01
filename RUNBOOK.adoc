@@ -1,0 +1,96 @@
+= v1.0.0 Release Runbook
+
+The ajs_01 v1.0.0 release runbook is divided into the following sections:
+
+* Notebook management
+* Paragraph execution
+* Results reporting
+* Collarobative editing
+* Errors and notifications
+* Persistance
+* Jobs management
+* Authorization and authentication
+* Other
+
+Tests in each section must complete as expected before the release can be published. 
+
+== Notebook Management
+
+The user must be able to:
+
+. Create a notebook or a folder
+. Import a notebook
+. Rename the notebook or the folder
+. Clone the notebook
+. Clone a paragraph inside the notebook
+. Remove the notebook or folder
+. Export the notebook
+
+Any unexpected behavior should be solved before the release. 
+
+=== Create notebook or folder
+
+To create a new notebook:
+
+. Open the home view
+. Click `Create notebook` button
+. Add name for the notebook
+. Choose a default interpreter for the notebook or go with the default value
+. Click `Create` button
+
+As a result, you should have a new notebook without any content. 
+
+*The following actions are not expected:*
+
+* Notebook cannot be created because there is already a notebook with similar name
+* After the notebook has been created, it does not open for the user
+* The name cannot contain latin alphabets, numbers, underscore, dash or slash
+* The created notebook has a different name showing at the top than what was written in the input field
+* The created notebook shows different name on home and on notebook view
+* The notebook opens after it has been created but it does not show in home view
+* The notebook is immediately visible for everyone or for some users after it has been created
+
+To create a new folder:
+
+. Open the home view
+. Click `Create folder` button
+. Add name for the folder
+. Choose the location for the folder
+. Choose permissions for the folder or go with the default value
+. Click `Create` button
+
+As a result, you should have a new folder showing up in the file listing.
+
+*The following actions are not expected:*
+
+* User needs to create a folder by using path as a name, e.g `/test-folder/my-new-folder`
+* The folder is immediately visible for everyone or for some users after it has been created 
+* The folder is not visible for users that has been set to see the new folder in folder permissions
+
+=== Rename notebook or folder
+
+=== Clone notebook 
+
+=== Clone paragraph
+
+=== Delete notebook or folder
+
+=== Import notebook
+
+=== Export notebook
+
+== Paragraph Execution
+
+== Results Reporting
+
+== Collaborative Editing
+
+== Errors and Notifications
+
+== Persistence
+
+== Jobs Management
+
+== Authorization and Authentication
+
+== Other 
