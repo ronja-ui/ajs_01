@@ -66,8 +66,48 @@ As a result, you should have a new folder showing up in the file listing.
 * User needs to create a folder by using path as a name, e.g `/test-folder/my-new-folder`
 * The folder is immediately visible for everyone or for some users after it has been created 
 * The folder is not visible for users that has been set to see the new folder in folder permissions
+* User cannot open the new folder
+* The folder's owner or users with right access rights cannot create new notebooks in the new folder
+* The created folder has a different name than what was written in the input field
 
 === Rename notebook or folder
+
+To rename a notebook on home view:
+
+. Go to the home view
+. Click `rename notebook` button
+. Give a different name
+. Click `rename` button
+
+To rename a notebook on notebook view:
+
+. Open the notebook
+. Click notebook's name
+. Give a different name
+. Hit enter or click outside the input field
+
+As a result, the notebook should have a different name.
+
+The following actions are not expected:
+
+* x
+* y
+* z
+
+To rename a folder:
+
+. Go to home view
+. Click `rename folder` button
+. Give a different name
+. Click `rename` button
+
+As a result, the folder should have a different name.
+
+The following actions are not expected:
+
+* x
+* y
+* z
 
 === Clone notebook 
 
