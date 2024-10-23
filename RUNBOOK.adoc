@@ -12,7 +12,16 @@ The ajs_01 v1.0.0 release runbook is divided into the following sections:
 * Authorization and authentication
 * Other
 
-Tests in each section must complete as expected before the release can be published. 
+Heuristic tests in each section must pass as expected before the release can be published. 
+
+If even one test in the section does not pass:
+
+. Create a new issue
+. Solve the problem
+. Create a release
+. Redo the section's tests that didn't pass earlier
+
+If the problem still exists after these steps, redo them until the issue is solved. 
 
 == Notebook Management
 
@@ -22,7 +31,6 @@ The user must be able to:
 . Import a notebook
 . Rename the notebook or the folder
 . Clone the notebook
-. Clone a paragraph inside the notebook
 . Remove the notebook or folder
 . Export the notebook
 
@@ -40,6 +48,8 @@ To create a new notebook:
 
 As a result, you should have a new notebook without any content. 
 
+[NOTE]
+====
 *The following actions are not expected:*
 
 * Notebook cannot be created because there is already a notebook with similar name
@@ -49,6 +59,7 @@ As a result, you should have a new notebook without any content.
 * The created notebook shows different name on home and on notebook view
 * The notebook opens after it has been created but it does not show in home view
 * The notebook is immediately visible for everyone or for some users after it has been created
+====
 
 To create a new folder:
 
@@ -61,6 +72,8 @@ To create a new folder:
 
 As a result, you should have a new folder showing up in the file listing.
 
+[NOTE]
+====
 *The following actions are not expected:*
 
 * User needs to create a folder by using path as a name, e.g `/test-folder/my-new-folder`
@@ -69,6 +82,7 @@ As a result, you should have a new folder showing up in the file listing.
 * User cannot open the new folder
 * The folder's owner or users with right access rights cannot create new notebooks in the new folder
 * The created folder has a different name than what was written in the input field
+====
 
 === Rename notebook or folder
 
@@ -88,11 +102,15 @@ To rename a notebook on notebook view:
 
 As a result, the notebook should have a different name.
 
-The following actions are not expected:
+[NOTE]
+====
+*The following actions are not expected:*
 
-* x
-* y
-* z
+* The original name shows even after the notebook has been renamed
+* The new name shows only on either home or notebook view
+* The new name is something else than what was written in the input field
+* The new name `/new-folder/my-folder/my-notebook` should not create new folders or change renamed notebook's file path
+====
 
 To rename a folder:
 
@@ -103,15 +121,16 @@ To rename a folder:
 
 As a result, the folder should have a different name.
 
-The following actions are not expected:
+[NOTE]
+====
+*The following actions are not expected:*
 
-* x
-* y
-* z
+* The original name shows even after the folder has been renamed
+* The new name is something else than what was written in the input field
+* The new name `/new-folder/my-folder/` should not create new folders or change renamed folder's file path
+====
 
 === Clone notebook 
-
-=== Clone paragraph
 
 === Delete notebook or folder
 
