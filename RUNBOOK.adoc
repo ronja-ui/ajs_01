@@ -155,6 +155,44 @@ As a result, you should have the cloned notebook opened up for you.
 
 === Delete notebook or folder
 
+To delete a notebook:
+
+. Go to the home or notebook view
+. Click the trash icon
+. Confirm the modal message by clicking `delete` button
+
+As a result, the notebook should have been deleted permanently. 
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The removed notebook goes into the trash folder
+* The notebook is removed from the notebook listing but can still be accessed via url
+* The removed notebook appears in the notebook listing and can be accessed as usual
+* The removed notebook appears in the notebook listing but can't be clicked
+* Some of the users or user groups can access the removed folder
+====
+
+To delete a folder:
+
+. Go to the home view
+. Click the trash icon
+. Confirm the modal message by clicking `delete` button
+
+As a result, the folder and its content should have been deleted permanently. 
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The removed folder goes into the trash folder
+* The folder is removed from the notebook listing but can still be accessed via url
+* The removed folder appears in notebook listing and can be accessed as usual
+* The removed notebook appears in the notebook listing but can't be clicked
+* Some of the users or user groups can access the removed folder
+====
+
 === Import notebook
 
 === Export notebook
