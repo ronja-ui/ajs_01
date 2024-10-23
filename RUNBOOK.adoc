@@ -5,6 +5,7 @@
 The ajs_01 v1.0.0 release runbook is divided into the following sections:
 
 * Notebook management
+* Paragraph management 
 * Paragraph execution
 * Results reporting
 * Collarobative editing
@@ -250,7 +251,35 @@ As a result, you should have a search match.
 * The keyword doesn't match with the search results
 ====
 
+== Paragraph Management 
+
+The user must be able to:
+
+* Toggle editor
+* Toggle output
+* Clone a paragraph
+* Clear output
+* Toggle paragraph title
+* Toggle line numbers
+* Change paragraph's width
+* Change paragraph editor's font size
+* Change paragraphs order
+* Remove a paragraph
+
 == Paragraph Execution
+
+The user must be able to:
+
+* Run a selected paragraph
+* Run all paragraphs
+* Run all paragraphs above or below
+* Disable a run in the selected paragraph
+* Stop the paragraph run in selected paragraph
+* Stop run in all paragraphs
+* Schedule a run
+* See when the next scheduled run will occur
+* See the progress of paragraph's run
+* See the paragraph's execution metadata
 
 == Results Reporting
 
