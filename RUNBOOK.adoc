@@ -1,5 +1,7 @@
 = v1.0.0 Release Runbook
 
+== Introduction
+
 The ajs_01 v1.0.0 release runbook is divided into the following sections:
 
 * Notebook management
@@ -131,6 +133,25 @@ As a result, the folder should have a different name.
 ====
 
 === Clone notebook 
+
+To clone a notebook:
+
+. Go to home view or open the notebook you want to clone
+. Click `clone notebook` button
+. Give name or go with the default value
+. Click `Clone` button
+
+As a result, you should have the cloned notebook opened up for you.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The notebook can be cloned only from the home view
+* The notebook can be cloned only from the notebook view
+* The cloned notebook don't have same content as the original one
+* The user must refresh the page to see the actual content of cloned notebook
+====
 
 === Delete notebook or folder
 
