@@ -283,7 +283,22 @@ The user must be able to:
 
 == Results Reporting
 
+The user must be able to:
+
+* See results of the latest run
+* Configure graphs
+* Use filtering in results
+* Share paragraph results
+* Export the dataset shown in results
+
 == Collaborative Editing
+
+The user must be able to:
+
+* See who is also inspecting the same notebook
+* See real-time changes when another user is editing scripts
+* See real-time changes when another user is toggling any feature listed in paragraph management section
+* See the same results as other collaborative users after a paragraph has been run
 
 == Errors and Notifications
 
@@ -293,4 +308,17 @@ The user must be able to:
 
 == Authorization and Authentication
 
+The user must be able to:
+
+* Log in and log out
+* Assign or remove permissions for notebooks and folders they own
+* See the content they have access rights
+
 == Other 
+
+Other features that should be available in Teragrep:
+
+* DPL syntax highlight
+* Syntax completition support
+* Interpreter preloader
+* Interpreter status
