@@ -29,12 +29,13 @@ If the problem still exists after these steps, redo them until the issue is solv
 
 The user must be able to:
 
-. Create a notebook or a folder
-. Import a notebook
-. Rename the notebook or the folder
-. Clone the notebook
-. Remove the notebook or folder
-. Export the notebook
+* Create a notebook or a folder
+* Import a notebook
+* Rename the notebook or the folder
+* Clone the notebook
+* Remove the notebook or folder
+* Export the notebook
+* Search for a notebook or a folder
 
 Any unexpected behavior should be solved before the release. 
 
@@ -195,7 +196,59 @@ As a result, the folder and its content should have been deleted permanently.
 
 === Import notebook
 
+To import a notebook:
+
+. Go to the home view
+. Click `Import notebook` button
+. Import the notebook either via file transfer or by using URL
+. Give a name for the imported notebook
+. Click `Import` button
+
+As a result, you should have the imported notebook opened.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* Notebook is imported but it doesn't automatically open up
+* Notebook is not imported and user doesn't get notified
+* Imported notebook has wrong or empty content in paragraphs
+====
+
 === Export notebook
+
+To export a notebook:
+
+. Open the notebook
+. Click `Export this notebook` button
+
+As a result, you should have notebook exported in your downloads directory. 
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The exported file is in other than JSON format
+* UI tells the export was succesful but nothing was exported
+* User gets a wrong notebook exported
+====
+
+=== Search for a notebook or a folder
+
+To search for a notebook:
+
+. Go to the home view
+. Write keyword in the search bar
+
+As a result, you should have a search match. 
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The UI searches for contents in notebooks
+* The keyword doesn't match with the search results
+====
 
 == Paragraph Execution
 
