@@ -306,6 +306,12 @@ The user must be able to:
 
 == Jobs Management
 
+The user must be able to:
+
+* See the status of paragraphs in notebooks they have access to
+* Run notebooks' content and stop the run
+* See an alert for pending jobs
+
 == Authorization and Authentication
 
 The user must be able to:
