@@ -302,7 +302,20 @@ The user must be able to:
 
 == Errors and Notifications
 
+* Toast messages for low-level notifications
+* Modal messages for permanent or harmful actions
+* Error messages in paragraph output
+* Interpreter status
+* Alert configuration
+* Email alerts
+
 == Persistence
+
+* Script saving
+* Result saving
+* Notification when connection to server is lost
+* Commit autosave
+* Version history
 
 == Jobs Management
 
@@ -320,6 +333,11 @@ The user must be able to:
 * Assign or remove permissions for notebooks and folders they own
 * See the content they have access rights
 
+== Admin Configuration Tools
+
+* Notebook globals
+* Credentials
+
 == Other 
 
 Other features that should be available in Teragrep:
@@ -327,4 +345,3 @@ Other features that should be available in Teragrep:
 * DPL syntax highlight
 * Syntax completition support
 * Interpreter preloader
-* Interpreter status
