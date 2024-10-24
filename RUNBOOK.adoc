@@ -15,16 +15,41 @@ The ajs_01 v1.0.0 release runbook is divided into the following sections:
 * Authorization and authentication
 * Other
 
-Heuristic tests in each section must pass as expected before the release can be published. 
+=== Conducting a test
 
-If even one test in the section does not pass:
+Tests in each section must pass as expected before the release can be published. 
 
-. Create a new issue
-. Solve the problem
-. Create a release
-. Redo the section's tests that didn't pass earlier
+If even one test in the section does not pass, create a new issue on ajs_01. 
 
-If the problem still exists after these steps, redo them until the issue is solved. 
+After the issue has been fixed, test the feature again. If the test still fails, reopen the issue and let the developer know. Redo this iteration until the test passes. 
+
+=== Documenting test results
+
+Use the following template when auditing:
+
+|===
+|Date |Evaluator
+
+|2024/11/03
+|John Doe
+|===
+
+|===
+|Section |Feature |Task completed (yes/no) |Issues |Recommendations
+
+|Notebook management
+|Create a notebook
+|Yes
+|UI warned that a notebook with the same name existed but I couldn't find it
+|Let the user to create notebooks with the same name
+
+|Notebook management
+|Create a folder
+|No
+|There isn't a separate button for creating a folder as mentioned in the step-by-step guide
+|Add `create folder` button
+|===
+
 
 == Notebook Management
 
