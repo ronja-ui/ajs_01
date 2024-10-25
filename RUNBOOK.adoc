@@ -291,6 +291,26 @@ The user must be able to:
 * Change paragraphs order
 * Remove a paragraph
 
+=== Toggle editor
+
+=== Toggle output
+
+=== Clone a paragraph
+
+=== Clear output
+
+=== Toggle paragraph title
+
+=== Toggle line numbers
+
+=== Change paragraph's width
+
+=== Change paragraph editor's font size
+
+=== Change paragraphs order
+
+=== Remove a paragraph
+
 == Paragraph Execution
 
 The user must be able to:
@@ -306,6 +326,16 @@ The user must be able to:
 * See the progress of paragraph's run
 * See the paragraph's execution metadata
 
+=== Run a paragraph
+
+=== Run all paragraphs
+
+=== Run all paragraphs above and below
+
+=== Disable a run in a paragraph
+
+=== Schedule a run
+
 == Results Reporting
 
 The user must be able to:
@@ -315,6 +345,16 @@ The user must be able to:
 * Use filtering in results
 * Share paragraph results
 * Export the dataset shown in results
+
+=== Inspect results after running a paragraph
+
+=== Configure graphs
+
+=== Filter results
+
+=== Share paragraph's results
+
+=== Export the dataset
 
 == Collaborative Editing
 
