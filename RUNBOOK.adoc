@@ -401,7 +401,7 @@ As a result, the line numbers should be hidden and visible again, when the butto
 To change paragraph's width:
 
 . Open a notebook
-. Click the gear icon on the right
+. Click the gear icon on the right in paragraph control
 . Change the value in the select next to width label
 
 As a result, the paragraph's width should be different than before.
@@ -420,7 +420,7 @@ As a result, the paragraph's width should be different than before.
 To change the editor's font size:
 
 . Open a notebook
-. Click the gear icon on the right
+. Click the gear icon on the right in paragraph control
 . Increase the font size by selecting a different value in the select input (default value is 9)
 
 As a result, the editor's font size should be bigger.
@@ -435,7 +435,40 @@ As a result, the editor's font size should be bigger.
 
 === Change paragraphs order
 
+To move up a paragraph:
+
+. Open a notebook
+. Click the gear icon on the right in paragraph control
+. Click `Move up` button
+
+To move down a paragraph:
+
+. Open a notebook
+. Click the gear icon on the right in paragraph control
+. Click `Move down` button
+
+To move a paragraph to the top:
+
+. Open a notebook
+. Click the gear icon on the right in paragraph control
+. Click `Move to the top` button
+
+To move a paragraph to the bottom:
+
+. Open a notebook
+. Click the gear icon on the right in paragraph control
+. Click `Move to the bottom` button
+
 === Remove a paragraph
+
+To remove a paragraph:
+
+. Open a notebook
+. Click the gear icon on the right in paragraph control
+. Click `Remove` button
+. Confirm the modal's message by clicking `Remove` button
+
+As a result, the paragraph should have been removed. 
 
 == Paragraph Execution
 
