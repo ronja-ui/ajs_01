@@ -293,7 +293,39 @@ The user must be able to:
 
 === Toggle editor
 
+To toggle editor:
+
+. Open a notebook
+. Click the first icon on left in paragraph control
+
+As a result, the editor should be now hidden. If you repeat the last step, the editor should be visible again.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The editor toggling button doesn't hide or show the editor
+* The button toggles another paragraph's editor
+* The button toggles other content but not the editor in the paragraph
+====
+
 === Toggle output
+
+To toggle output:
+
+. Open a notebook
+. Click the second icon on the left in paragraph conrtol
+
+As a result, the output should be now hidden. If you repeat the last step, the output should be visible again.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The output toggling button doesn't hide or show the output
+* The button toggles another paragraph's output
+* The button toggles other content but not the output in the paragraph
+====
 
 === Clone a paragraph
 
