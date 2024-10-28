@@ -329,7 +329,37 @@ As a result, the output should be now hidden. If you repeat the last step, the o
 
 === Clone a paragraph
 
+To clone a paragraph:
+
+. Open a notebook
+. Click the third icon on the left in paragraph control
+
+As a result, you should have a cloned paragraph below.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The paragraph's editor is empty in the cloned paragraph
+* The cloned paragraph doesn't show up immediately below the original paragraph
+====
+
 === Clear output
+
+To clear paragraph's output:
+
+. Open a notebook
+. Click the fourth icon on the left in paragraph control
+
+As a result, the paragraph's output should be empty.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The output doesn't vanish even after the button is clicked
+* The output is cleared but shows after page refresh
+====
 
 === Toggle paragraph title
 
