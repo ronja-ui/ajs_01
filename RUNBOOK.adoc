@@ -363,11 +363,75 @@ As a result, the paragraph's output should be empty.
 
 === Toggle paragraph title
 
+To toggle paragraph's title:
+
+. Open a notebook
+. Click the fifth icon on the left in paragraph control
+
+As a result, the paragraph's title should be visible. 
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The title doesn't show up or vanish after clicking the button
+* The title shows up or vanishes from another paragraph
+* The title changes every time or sometimes when the toggling button is clicked to show the title
+====
+
 === Toggle line numbers
+
+To toggle line numbers:
+
+. Open a notebook
+. Click the sixth icon on the left in paragraph control
+
+As a result, the line numbers should be hidden and visible again, when the button is clicked again.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The button doesn't toggle line numbers
+* The button toggles line numbers in another paragraph
+====
 
 === Change paragraph's width
 
+To change paragraph's width:
+
+. Open a notebook
+. Click the gear icon on the right
+. Change the value in the select next to width label
+
+As a result, the paragraph's width should be different than before.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The paragraph's width doesn't match with what's set in the select input
+* The width doesn't change when there's a different value set in the select
+* The width changes in another paragraph
+====
+
 === Change paragraph editor's font size
+
+To change the editor's font size:
+
+. Open a notebook
+. Click the gear icon on the right
+. Increase the font size by selecting a different value in the select input (default value is 9)
+
+As a result, the editor's font size should be bigger.
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The editor's font size doesn't change
+* The editor's font size changes in another paragraph
+====
 
 === Change paragraphs order
 
