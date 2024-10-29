@@ -441,11 +441,15 @@ To move up a paragraph:
 . Click the gear icon on the right in paragraph control
 . Click `Move up` button
 
+As a result, the selected paragraph should have moved one notch upward. 
+
 To move down a paragraph:
 
 . Open a notebook
 . Click the gear icon on the right in paragraph control
 . Click `Move down` button
+
+As a result, the selected paragraph should have moved one notch downwards. 
 
 To move a paragraph to the top:
 
@@ -453,11 +457,23 @@ To move a paragraph to the top:
 . Click the gear icon on the right in paragraph control
 . Click `Move to the top` button
 
+As a result, the selected paragraph should be the first paragraph in the notebook. 
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* The selected paragraph isn't moved to be the first paragraph but instead the second paragraph in the notebook
+* The selected paragraph is moved to be the last paragraph in the notebook
+====
+
 To move a paragraph to the bottom:
 
 . Open a notebook
 . Click the gear icon on the right in paragraph control
 . Click `Move to the bottom` button
+
+As a result, the selected paragraph should be the last paragraph in the notebook. 
 
 === Remove a paragraph
 
@@ -469,6 +485,14 @@ To remove a paragraph:
 . Confirm the modal's message by clicking `Remove` button
 
 As a result, the paragraph should have been removed. 
+
+[NOTE]
+====
+*The following actions are not expected:*
+
+* Confirmation modal doesn't show up
+* Paragraph vanishes but shows up when page is refreshed
+====
 
 == Paragraph Execution
 
