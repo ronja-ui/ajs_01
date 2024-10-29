@@ -509,7 +509,18 @@ The user must be able to:
 * See the progress of paragraph's run
 * See the paragraph's execution metadata
 
-=== Run a paragraph
+=== Run a paragraph and stop the run in the paragraph
+
+To run a paragraph:
+
+. Open a notebook
+. Write the following query in an empty editor: +
+`index=example earliest=-4y`
+. Click `Run paragraph` button next to the gear icon on the right
+
+After this the paragraph run should start. 
+
+To stop on-going paragraph run, click again the same button you clicked to start paragraph run. 
 
 === Run all paragraphs
 
