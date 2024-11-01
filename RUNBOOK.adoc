@@ -522,13 +522,37 @@ After this the paragraph run should start.
 
 To stop on-going paragraph run, click again the same button you clicked to start paragraph run. 
 
-=== Run all paragraphs
+=== Run all paragraphs and stop the run in the notebook
+
+To run all paragraphs:
+
+. Open a notebook
+. Ensure there are content in several paragraphs
+. Click the run button next to notebook's name
+
+After this, all paragraphs in the notebook should be in the pending state. 
+
+To stop the on-going run in the notebook, click again the same button next to the notebook's name. 
 
 === Run all paragraphs above and below
 
 === Disable a run in a paragraph
 
+To disable a run in a paragraph:
+
+. Open a notebook
+. Click the gear icon in paragraph's controls on the right side
+. Click `Disable run` button
+
 === Schedule a run
+
+To schedule a run:
+
+. Open a notebook
+. Click the clock icon at the top of notebook
+. Click one of the buttons that contain pre-set interval times
+
+As a result, you should be able to see, which scheduled interval has been set for the notebook.
 
 == Results Reporting
 
