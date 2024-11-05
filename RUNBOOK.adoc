@@ -616,6 +616,26 @@ The user must be able to:
 * Assign or remove permissions for notebooks and folders they own
 * See the content they have access rights
 
+=== Log in and log out
+
+=== Change permissions in a notebook
+
+=== Change permissions for a folder
+
+=== Inspect accessible content
+
+. Create new notebooks and change permissions, so you have:
+.. one notebook where you're the owner
+.. one notebook where you're only the writer
+.. one notebook where you're only the runner
+.. and one notebook where you're only the reader
+. Search for these notebooks to see if they appear in the notebook listing
+. Try to access these notebooks 
+. Try to do several things in these notebooks:
+.. If you're the writer, try if you can also do things only owners should be able to do
+.. If you're the runner, try if you can do things only owners and writers should be able to do
+.. If you're the reader, try if you can do more than read the content in the notebook
+
 == Admin Configuration Tools
 
 * Notebook globals
