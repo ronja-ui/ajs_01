@@ -583,6 +583,18 @@ The user must be able to:
 * See real-time changes when another user is toggling any feature listed in paragraph management section
 * See the same results as other collaborative users after a paragraph has been run
 
+=== Watchers of a notebook
+
+The watcher's list should only show other users' names if there is someone else than you using a notebook. 
+
+To test that your username don't appear in the watcher's list:
+
+. Open a notebook
+. Open the same notebook to a different tab
+. Open one of the paragraph's results to a separate tab by clicking link to results in paragraph options menu
+
+If only your account is using the notebook, its username shouldn't appear in the list of watchers. 
+
 == Errors and Notifications
 
 * Toast messages for low-level notifications
@@ -653,3 +665,8 @@ Other features that should be available in Teragrep:
 * DPL syntax highlight
 * Syntax completition support
 * Interpreter preloader
+
+=== Interpreter preloader
+
+. Open a notebook
+. Inspect the status message in paragraphs
