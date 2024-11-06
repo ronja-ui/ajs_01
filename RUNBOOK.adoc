@@ -620,6 +620,11 @@ The user must be able to:
 
 === Change permissions in a notebook
 
+. Open a notebook
+. Click the lock icon on the top right to open permissions sidebar
+. Assign different permissions to several users
+. Click `Save`
+
 === Change permissions for a folder
 
 === Inspect accessible content
