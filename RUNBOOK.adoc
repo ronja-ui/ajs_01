@@ -568,7 +568,40 @@ The user must be able to:
 
 === Configure graphs
 
+Open a notebook and run the following query:
+
+----
+%dpl
+index=x earliest=-4y
+| spath
+| stats sum(x) 
+----
+
+After the paragraph run has finished:
+
+. Switch from table to line chart
+. Open graph settings
+. Attach values in a way that
+.. x goes to y
+.. z goes to w
+
+As a result, you should have a fine looking line chart.
+
 === Filter results
+
+Open a notebook and run the following query:
+
+----
+%dpl
+index=x earliest=-4y
+| spath
+----
+
+After the paragraph run has finished:
+
+. x
+. y
+. z
 
 === Share paragraph's results
 
