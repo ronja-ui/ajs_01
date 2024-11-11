@@ -663,6 +663,31 @@ The user must be able to:
 
 === Log in and log out
 
+. Open Teragrep
+. Click `Login` button
+. Fill in wrong username and password
+. Click `Login` button
+
+An alert should be appear. 
+
+. Fill in the correct username and password
+. Click `Login` button again
+
+The home view should appear. 
+
+. Open one of the notebooks
+. Copy the URL to the notebook
+. Logout
+. Paste the notebook URL you just copied
+
+The UI should ask you to log in. 
+
+. Click to log in
+. Fill in your username and password
+. Click `Login` button
+
+The notebook should appear in front of you. 
+
 === Change permissions in a notebook
 
 . Open a notebook
