@@ -43,8 +43,8 @@ The user must be able to:
 |Completed |No |Task |Step |Expected outcome |Unexpected outcome
 
 |
-|Create a notebook
 |1
+|Create a notebook
 a|
 
 . Open the home view +
@@ -65,8 +65,8 @@ a|
 * The notebook is immediately visible for everyone or for some users after it has been created
 
 |
-|Create a folder
 |2
+|Create a folder
 a|
 
 . Open the home view
@@ -87,8 +87,8 @@ a|
 * The created folder has a different name than what was written in the input field
 
 |
-|Rename a notebook at home view
 |3
+|Rename a notebook at home view
 a|
 
 . Go to the home view
@@ -105,8 +105,8 @@ a|
 * The new name `/new-folder/my-folder/my-notebook` should not create new folders or change renamed notebook's file path
 
 |
-|Rename a notebook at notebook view
 |4
+|Rename a notebook at notebook view
 a|
 
 . Open the notebook
@@ -118,8 +118,8 @@ a|
 a|?
 
 |
-|Rename a folder
 |5
+|Rename a folder
 a|
 
 . Go to home view
@@ -135,8 +135,8 @@ a|
 * The new name `/new-folder/my-folder/` should not create new folders or change renamed folder's file path
 
 |
-|Clone a notebook
 |6
+|Clone a notebook
 a|
 
 . Go to home view or open the notebook you want to clone
@@ -153,8 +153,8 @@ a|
 * The user must refresh the page to see the actual content of cloned notebook
 
 |
-|Delete a notebook
 |7
+|Delete a notebook
 a|
 
 . Go to the home or notebook view
@@ -171,8 +171,8 @@ a|
 * Some of the users or user groups can access the removed folder
 
 |
-|Delete a folder
 |8
+|Delete a folder
 a|
 
 . Go to the home view
@@ -189,8 +189,8 @@ a|
 * Some of the users or user groups can access the removed folder
 
 |
-|Import a notebook
 |9
+|Import a notebook
 a|
 
 . Go to the home view
@@ -207,8 +207,8 @@ a|
 * Imported notebook has wrong or empty content in paragraphs
 
 |
-|Export a notebook
 |10
+|Export a notebook
 a|
 
 . Open the notebook
@@ -222,8 +222,8 @@ a|
 * User gets a wrong notebook exported
 
 |
-|Search for a notebook
 |11
+|Search for a notebook
 a|
 
 . Go to the home view
@@ -236,8 +236,8 @@ a|
 * The keyword doesn't match with the search results
 
 |
-|Search for a folder
 |12
+|Search for a folder
 |
 |You should have a search match. 
 |
@@ -258,75 +258,68 @@ The user must be able to:
 * Change paragraphs order
 * Remove a paragraph
 
-=== Toggle editor
+|====
+|Completed |No |Task |Step |Expected outcome |Unexpected outcome
 
-To toggle editor:
+|
+|1
+|Toggle editor
+a|
 
 . Open a notebook
 . Click the first icon on left in paragraph control
 
-As a result, the editor should be now hidden. If you repeat the last step, the editor should be visible again.
+|The editor should be now hidden. If you repeat the last step, the editor should be visible again.
+a|
 
-[NOTE]
-====
-*The following actions are not expected:*
 
 * The editor toggling button doesn't hide or show the editor
 * The button toggles another paragraph's editor
 * The button toggles other content but not the editor in the paragraph
-====
 
-=== Toggle output
-
-To toggle output:
+|
+|2
+|Toggle output
+a|
 
 . Open a notebook
 . Click the second icon on the left in paragraph conrtol
 
-As a result, the output should be now hidden. If you repeat the last step, the output should be visible again.
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The output should be now hidden. If you repeat the last step, the output should be visible again.
+a¦
 
 * The output toggling button doesn't hide or show the output
 * The button toggles another paragraph's output
 * The button toggles other content but not the output in the paragraph
-====
 
-=== Clone a paragraph
-
-To clone a paragraph:
+|
+|3
+|Clone a paragraph
+a|
 
 . Open a notebook
 . Click the third icon on the left in paragraph control
 
-As a result, you should have a cloned paragraph below.
-
-[NOTE]
-====
-*The following actions are not expected:*
+|You should have a cloned paragraph below.
+a|
 
 * The paragraph's editor is empty in the cloned paragraph
 * The cloned paragraph doesn't show up immediately below the original paragraph
-====
 
-=== Clear output
-
-To clear paragraph's output:
+|
+|4
+|Clear output
+a|
 
 . Open a notebook
 . Click the fourth icon on the left in paragraph control
 
-As a result, the paragraph's output should be empty.
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The paragraph's output should be empty.
+a|
 
 * The output doesn't vanish even after the button is clicked
 * The output is cleared but shows after page refresh
-====
+|====
 
 === Toggle paragraph title
 
