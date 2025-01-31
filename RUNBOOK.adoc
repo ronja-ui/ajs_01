@@ -286,7 +286,7 @@ a|
 . Click the second icon on the left in paragraph conrtol
 
 |The output should be now hidden. If you repeat the last step, the output should be visible again.
-a¦
+a|
 
 * The output toggling button doesn't hide or show the output
 * The button toggles another paragraph's output
@@ -319,140 +319,114 @@ a|
 
 * The output doesn't vanish even after the button is clicked
 * The output is cleared but shows after page refresh
-|====
 
-=== Toggle paragraph title
-
-To toggle paragraph's title:
+|
+|5
+|Toggle paragraph's title
+a|
 
 . Open a notebook
 . Click the fifth icon on the left in paragraph control
 
-As a result, the paragraph's title should be visible. 
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The paragraph's title should be visible. 
+a|
 
 * The title doesn't show up or vanish after clicking the button
 * The title shows up or vanishes from another paragraph
 * The title changes every time or sometimes when the toggling button is clicked to show the title
-====
 
-=== Toggle line numbers
-
-To toggle line numbers:
+|
+|6
+|Toggle line numbers
+a|
 
 . Open a notebook
 . Click the sixth icon on the left in paragraph control
 
-As a result, the line numbers should be hidden and visible again, when the button is clicked again.
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The line numbers should be hidden and visible again, when the button is clicked again.
+a|
 
 * The button doesn't toggle line numbers
 * The button toggles line numbers in another paragraph
-====
 
-=== Change paragraph's width
-
-To change paragraph's width:
+|
+|7
+|Change paragraph's width
+a|
 
 . Open a notebook
 . Click the gear icon on the right in paragraph control
 . Change the value in the select next to width label
 
-As a result, the paragraph's width should be different than before.
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The paragraph's width should be different than before.
+a|
 
 * The paragraph's width doesn't match with what's set in the select input
 * The width doesn't change when there's a different value set in the select
 * The width changes in another paragraph
-====
 
-=== Change paragraph editor's font size
-
-To change the editor's font size:
+|
+|8
+|Change paragraph editor's font size
+a|
 
 . Open a notebook
 . Click the gear icon on the right in paragraph control
 . Increase the font size by selecting a different value in the select input (default value is 9)
 
-As a result, the editor's font size should be bigger.
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The editor's font size should be bigger.
+a|
 
 * The editor's font size doesn't change
 * The editor's font size changes in another paragraph
-====
 
-=== Change paragraphs order
-
-To move up a paragraph:
+|
+|9
+|Move up and down a paragraph
+a|
 
 . Open a notebook
 . Click the gear icon on the right in paragraph control
 . Click `Move up` button
-
-As a result, the selected paragraph should have moved one notch upward. 
-
-To move down a paragraph:
-
-. Open a notebook
-. Click the gear icon on the right in paragraph control
+. Select a different paragraph and repeat the second step
 . Click `Move down` button
 
-As a result, the selected paragraph should have moved one notch downwards. 
+|Selected paragraphs should have moved one notch upward and downward.
+a|?
 
-To move a paragraph to the top:
+|
+|10
+|Move a paragraph to the top and bottom
+a|
 
 . Open a notebook
 . Click the gear icon on the right in paragraph control
 . Click `Move to the top` button
+. Select a different paragraph and repeat the second step
+. Click `Move to the bottom` button
 
-As a result, the selected paragraph should be the first paragraph in the notebook. 
-
-[NOTE]
-====
-*The following actions are not expected:*
+|Selected paragraphs should be the first or last paragraph in the notebook.
+a|
 
 * The selected paragraph isn't moved to be the first paragraph but instead the second paragraph in the notebook
 * The selected paragraph is moved to be the last paragraph in the notebook
-====
 
-To move a paragraph to the bottom:
-
-. Open a notebook
-. Click the gear icon on the right in paragraph control
-. Click `Move to the bottom` button
-
-As a result, the selected paragraph should be the last paragraph in the notebook. 
-
-=== Remove a paragraph
-
-To remove a paragraph:
+|
+|11
+|Remove a paragraph
+a|
 
 . Open a notebook
 . Click the gear icon on the right in paragraph control
 . Click `Remove` button
 . Confirm the modal's message by clicking `Remove` button
 
-As a result, the paragraph should have been removed. 
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The paragraph should have been removed. 
+a|
 
 * Confirmation modal doesn't show up
 * Paragraph vanishes but shows up when page is refreshed
-====
+|====
 
 == Paragraph Execution
 
