@@ -133,72 +133,65 @@ a|
 * The original name shows even after the folder has been renamed
 * The new name is something else than what was written in the input field
 * The new name `/new-folder/my-folder/` should not create new folders or change renamed folder's file path
-|====
 
-=== Clone notebook 
-
-To clone a notebook:
+|
+|Clone a notebook
+|6
+a|
 
 . Go to home view or open the notebook you want to clone
 . Click `clone notebook` button
 . Give name or go with the default value
 . Click `Clone` button
 
-As a result, you should have the cloned notebook opened up for you.
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The cloned notebook opens up.
+a|
 
 * The notebook can be cloned only from the home view
 * The notebook can be cloned only from the notebook view
 * The cloned notebook don't have same content as the original one
 * The user must refresh the page to see the actual content of cloned notebook
-====
 
-=== Delete notebook or folder
-
-To delete a notebook:
+|
+|Delete a notebook
+|7
+a|
 
 . Go to the home or notebook view
 . Click the trash icon
 . Confirm the modal message by clicking `delete` button
 
-As a result, the notebook should have been deleted permanently. 
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The notebook should have been deleted permanently. 
+a|
 
 * The removed notebook goes into the trash folder
 * The notebook is removed from the notebook listing but can still be accessed via url
 * The removed notebook appears in the notebook listing and can be accessed as usual
 * The removed notebook appears in the notebook listing but can't be clicked
 * Some of the users or user groups can access the removed folder
-====
 
-To delete a folder:
+|
+|Delete a folder
+|8
+a|
 
 . Go to the home view
 . Click the trash icon
 . Confirm the modal message by clicking `delete` button
 
-As a result, the folder and its content should have been deleted permanently. 
-
-[NOTE]
-====
-*The following actions are not expected:*
+|The folder and its content should have been deleted permanently. 
+a|
 
 * The removed folder goes into the trash folder
 * The folder is removed from the notebook listing but can still be accessed via url
 * The removed folder appears in notebook listing and can be accessed as usual
 * The removed notebook appears in the notebook listing but can't be clicked
 * Some of the users or user groups can access the removed folder
-====
 
-=== Import notebook
-
-To import a notebook:
+|
+|Import a notebook
+|9
+a|
 
 . Go to the home view
 . Click `Import notebook` button
@@ -206,51 +199,49 @@ To import a notebook:
 . Give a name for the imported notebook
 . Click `Import` button
 
-As a result, you should have the imported notebook opened.
-
-[NOTE]
-====
-*The following actions are not expected:*
+|You should have the imported notebook opened.
+a|
 
 * Notebook is imported but it doesn't automatically open up
 * Notebook is not imported and user doesn't get notified
 * Imported notebook has wrong or empty content in paragraphs
-====
 
-=== Export notebook
-
-To export a notebook:
+|
+|Export a notebook
+|10
+a|
 
 . Open the notebook
 . Click `Export this notebook` button
 
-As a result, you should have notebook exported in your downloads directory. 
-
-[NOTE]
-====
-*The following actions are not expected:*
+|You should have notebook exported in your downloads directory. 
+a|
 
 * The exported file is in other than JSON format
 * UI tells the export was succesful but nothing was exported
 * User gets a wrong notebook exported
-====
 
-=== Search for a notebook or a folder
-
-To search for a notebook:
+|
+|Search for a notebook
+|11
+a|
 
 . Go to the home view
 . Write keyword in the search bar
 
-As a result, you should have a search match. 
-
-[NOTE]
-====
-*The following actions are not expected:*
+|You should have a search match. 
+a|
 
 * The UI searches for contents in notebooks
 * The keyword doesn't match with the search results
-====
+
+|
+|Search for a folder
+|12
+|
+|You should have a search match. 
+|
+|====
 
 == Paragraph Management 
 
