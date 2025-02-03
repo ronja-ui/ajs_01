@@ -7,11 +7,11 @@ The ajs_01 v1.0.0 release runbook is divided into the following sections:
 * <<notebook-management, Notebook management>>
 * <<paragraph-management, Paragraph management>>
 * <<paragraph-execution, Paragraph execution>>
-* Results reporting
-* Collarobative editing
-* Errors and notifications
-* Persistance
-* Jobs management
+* <<results-reporting, Results reporting>>
+* <<collaborative-editing, Collarobative editing>>
+* <<errors-and-notifications, Errors and notifications>>
+* Persistence
+* <<jobs-management, Jobs management>>
 * Authorization and authentication
 * Other
 
@@ -26,6 +26,11 @@ After the issue has been fixed, test the feature again. If the test still fails,
 === Documenting test results
 
 Use the template provided in each section. 
+
+When you have completed the task, make a mark in the "Completed" column in a way that:
+
+* Write X, if you completed the task successfully
+* Write dash (-), if you weren't able to complete the task.
 
 == Notebook Management
 
@@ -47,13 +52,13 @@ The user must be able to:
 |Create a notebook
 a|
 
-. Open the home view +
-. Click `Create notebook` button +
-. Add name for the notebook +
-. Choose a default interpreter for the notebook or go with the default value +
+. Open the home view 
+. Click `Create notebook` button 
+. Add name for the notebook 
+. Choose a default interpreter for the notebook or go with the default value 
 . Click `Create` button
 
-|You should have a new notebook without any content. 
+|A new notebook opens without any content and with the name set in the modal. 
 a|
 
 * Notebook cannot be created because there is already a notebook with similar name
@@ -76,7 +81,7 @@ a|
 . Choose permissions for the folder or go with the default value
 . Click `Create` button
 
-|You should have a new folder showing up in the file listing.
+|A new folder shows up in the file listing.
 a|
 
 * User needs to create a folder by using path as a name, e.g `/test-folder/my-new-folder`
@@ -106,23 +111,28 @@ a|
 
 |
 |4
-|Rename a notebook at notebook view
+|Rename a notebook at the notebook view
 a|
 
-. Open the notebook
+. Open an existing notebook
 . Click notebook's name
 . Give a different name
 . Hit enter or click outside the input field
 
 |The notebook should have a different name
-a|?
+a|
+
+* The original name shows even after the notebook has been renamed
+* The new name shows only on either home or notebook view
+* The new name is something else than what was written in the input field
+* If the new name has slashes, it shouldn't create new folders or change renamed notebook's file path
 
 |
 |5
 |Rename a folder
 a|
 
-. Go to home view
+. Go to the home view
 . Click `rename folder` button
 . Give a different name
 . Click `rename` button
@@ -139,9 +149,9 @@ a|
 |Clone a notebook
 a|
 
-. Go to home view or open the notebook you want to clone
+. Go to the home view or open the notebook you want to clone
 . Click `clone notebook` button
-. Give name or go with the default value
+. Give a name or go with the default value
 . Click `Clone` button
 
 |The cloned notebook opens up.
@@ -161,7 +171,7 @@ a|
 . Click the trash icon
 . Confirm the modal message by clicking `delete` button
 
-|The notebook should have been deleted permanently. 
+|The notebook has been deleted permanently. 
 a|
 
 * The removed notebook goes into the trash folder
@@ -179,7 +189,7 @@ a|
 . Click the trash icon
 . Confirm the modal message by clicking `delete` button
 
-|The folder and its content should have been deleted permanently. 
+|The folder and its content have been deleted permanently. 
 a|
 
 * The removed folder goes into the trash folder
@@ -199,7 +209,7 @@ a|
 . Give a name for the imported notebook
 . Click `Import` button
 
-|You should have the imported notebook opened.
+|The notebook opens after it has been imported.
 a|
 
 * Notebook is imported but it doesn't automatically open up
@@ -211,10 +221,10 @@ a|
 |Export a notebook
 a|
 
-. Open the notebook
+. Open a notebook
 . Click `Export this notebook` button
 
-|You should have notebook exported in your downloads directory. 
+|The exported notebook appears in Downloads directory. 
 a|
 
 * The exported file is in other than JSON format
@@ -227,7 +237,7 @@ a|
 a|
 
 . Go to the home view
-. Write keyword in the search bar
+. Write a keyword in the search bar
 
 |You should have a search match. 
 a|
@@ -238,9 +248,16 @@ a|
 |
 |12
 |Search for a folder
-|
+a|
+
+. Go to the home view
+. Write a keyword in the search bar
+
 |You should have a search match. 
-|
+a|
+
+* The UI searches for contents in notebooks
+* The keyword doesn't match with the search results
 |====
 
 == Paragraph Management 
