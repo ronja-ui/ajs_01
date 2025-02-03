@@ -15,22 +15,32 @@ The ajs_01 v1.0.0 release runbook is divided into the following sections:
 * Authorization and authentication
 * Other
 
-=== Conducting a test
+== Conducting Tests
 
-Tests in each section must pass as expected before the release can be published. 
+NOTE: Read this section and its sub sections before starting conducting tests. 
 
-If even one test in the section does not pass, create a new issue on ajs_01. 
+The runbook is divided into sections based on features. Each section has a template that is filled in during one test run. (You can fill in several sections with templates or just one section during one test session.)
 
-After the issue has been fixed, test the feature again. If the test still fails, reopen the issue and let the developer know. Redo this iteration until the test passes. 
+Completion of the task is assessed by a pass/fail mark. Don't skip tasks! Arrange enough time, so you can complete the section testing properly. 
+
+All tasks in all sections must pass before the release can be published. 
 
 === Documenting test results
 
-Use the template provided in each section. 
+Use the template provided in each section. In addition, include your name and the date you conducted the test.
 
 When you have completed the task, make a mark in the "Completed" column in a way that:
 
 * Write X, if you completed the task successfully
-* Write dash (-), if you weren't able to complete the task.
+* Write dash (-), if you couldn't complete the task.
+
+If you can't complete a task or face unexpected behavior, https://github.com/teragrep/ajs_01/issues/new?template=bug_report.md[create a new issue].
+
+After the issue has been fixed, conduct a new testing phase. If you still can't complete the task, reopen the issue and let the developer know. Redo this iteration until the test passes. 
+
+=== What is unexpected behavior?
+
+The template contains a column for unexpected behavior. Lists in that column are not comprehensive, so if you face a different kind of behavior that alters from the expected outcome listed in the "Expected outcome" column, it's considered as unexpected behavior. 
 
 == Notebook Management
 
