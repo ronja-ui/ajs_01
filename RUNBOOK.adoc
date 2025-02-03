@@ -294,9 +294,10 @@ The user must be able to:
 a|
 
 . Open a notebook
-. Click the first icon on left in paragraph control
+. Click the first icon on left in paragraph control to toggle the editor
+. Click the icon again 
 
-|The editor should be now hidden. If you repeat the last step, the editor should be visible again.
+|After the first click, the editor should be hidden. After the second click, the editor should be visible.
 a|
 
 
@@ -310,9 +311,16 @@ a|
 a|
 
 . Open a notebook
+. Run the following query: 
++
+----
+%dpl
+\| makeresults count=5
+----
+. Wait until the paragraph run has finished and results show up
 . Click the second icon on the left in paragraph conrtol
 
-|The output should be now hidden. If you repeat the last step, the output should be visible again.
+|After the first click, the output should be hidden. After the second click, the output should be visible.
 a|
 
 * The output toggling button doesn't hide or show the output
@@ -327,11 +335,11 @@ a|
 . Open a notebook
 . Click the third icon on the left in paragraph control
 
-|You should have a cloned paragraph below.
+|A cloned paragraph appears below the original.
 a|
 
 * The paragraph's editor is empty in the cloned paragraph
-* The cloned paragraph doesn't show up immediately below the original paragraph
+* The cloned paragraph doesn't show up below the original paragraph unless you refresh the page
 
 |
 |4
@@ -341,7 +349,7 @@ a|
 . Open a notebook
 . Click the fourth icon on the left in paragraph control
 
-|The paragraph's output should be empty.
+|The paragraph's output is empty.
 a|
 
 * The output doesn't vanish even after the button is clicked
@@ -355,7 +363,7 @@ a|
 . Open a notebook
 . Click the fifth icon on the left in paragraph control
 
-|The paragraph's title should be visible. 
+|The paragraph's title is visible. 
 a|
 
 * The title doesn't show up or vanish after clicking the button
@@ -369,8 +377,9 @@ a|
 
 . Open a notebook
 . Click the sixth icon on the left in paragraph control
+. Click the icon again
 
-|The line numbers should be hidden and visible again, when the button is clicked again.
+|Editor's line numbers should be hidden and then visible again.
 a|
 
 * The button doesn't toggle line numbers
@@ -401,10 +410,11 @@ a|
 . Click the gear icon on the right in paragraph control
 . Increase the font size by selecting a different value in the select input (default value is 9)
 
-|The editor's font size should be bigger.
+|The editor's font size is bigger.
 a|
 
 * The editor's font size doesn't change
+* The editor's font size increases irregurlarly
 * The editor's font size changes in another paragraph
 
 |
@@ -419,7 +429,11 @@ a|
 . Click `Move down` button
 
 |Selected paragraphs should have moved one notch upward and downward.
-a|?
+a|
+
+* The selected paragraph's location doesn't change
+* The selected paragraph's location changes to wrong direction
+* The selected paragraph's location changes more than one notch upward or downward
 
 |
 |10
@@ -435,8 +449,8 @@ a|
 |Selected paragraphs should be the first or last paragraph in the notebook.
 a|
 
-* The selected paragraph isn't moved to be the first paragraph but instead the second paragraph in the notebook
-* The selected paragraph is moved to be the last paragraph in the notebook
+* The moved paragraph is not the first or the last
+* The paragraph's location doesn't change
 
 |
 |11
@@ -448,7 +462,7 @@ a|
 . Click `Remove` button
 . Confirm the modal's message by clicking `Remove` button
 
-|The paragraph should have been removed. 
+|The paragraph has been removed permanently. 
 a|
 
 * Confirmation modal doesn't show up
