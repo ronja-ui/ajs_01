@@ -553,9 +553,9 @@ Open a notebook and run the following query:
 
 ----
 %dpl
-index=x earliest=-4y
-| spath
-| stats sum(x) 
+index=x earliest=-4y 
+\| spath 
+\| stats sum(x) 
 ----
 
 After the paragraph run has finished:
@@ -579,7 +579,7 @@ Open a notebook and run the following query:
 ----
 %dpl
 index=x earliest=-4y
-| spath
+\| spath
 ----
 
 After the paragraph run has finished:
@@ -615,17 +615,28 @@ The user must be able to:
 * See real-time changes when another user is toggling any feature listed in paragraph management section
 * See the same results as other collaborative users after a paragraph has been run
 
-=== Watchers of a notebook
+|====
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
 
-The watcher's list should only show other users' names if there is someone else than you using a notebook. 
-
-To test that your username don't appear in the watcher's list:
+|
+|1
+|Inspect the watchers' list
+a|
 
 . Open a notebook
 . Open the same notebook to a different tab
 . Open one of the paragraph's results to a separate tab by clicking link to results in paragraph options menu
 
-If only your account is using the notebook, its username shouldn't appear in the list of watchers. 
+|If only your account is using the notebook, its username shouldn't appear in the list of watchers. 
+|The watcher's list should only show other users' names if there is someone else than you using a notebook. 
+
+|
+|2
+|Collaborate and edit the script in a paragraph
+|
+|
+|
+|====
 
 == Errors and Notifications
 
@@ -636,6 +647,17 @@ If only your account is using the notebook, its username shouldn't appear in the
 * Alert configuration
 * Email alerts
 
+|====
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
+
+|
+|1
+|
+|
+|
+|
+|====
+
 == Persistence
 
 * Script saving
@@ -643,6 +665,17 @@ If only your account is using the notebook, its username shouldn't appear in the
 * Notification when connection to server is lost
 * Commit autosave
 * Version history
+
+|====
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
+
+|
+|1
+|
+|
+|
+|
+|====
 
 == Jobs Management
 
@@ -652,6 +685,17 @@ The user must be able to:
 * Run notebooks' content and stop the run
 * See an alert for pending jobs
 
+|====
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
+
+|
+|1
+|
+|
+|
+|
+|====
+
 == Authorization and Authentication
 
 The user must be able to:
@@ -660,43 +704,84 @@ The user must be able to:
 * Assign or remove permissions for notebooks and folders they own
 * See the content they have access rights
 
-=== Log in and log out
+|====
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
+
+|
+|1
+|Wrong username or password or both
+a|
 
 . Open Teragrep
 . Click `Login` button
 . Fill in wrong username and password
 . Click `Login` button
 
-An alert should be appear. 
+|An alert should be appear. 
+|
 
+|
+|2
+|Successful login
+a|
+
+. Open Teragrep
+. Click `Login` button
 . Fill in the correct username and password
 . Click `Login` button again
 
-The home view should appear. 
+|The home view should appear. 
+|
+
+|
+|3
+|
+a|
 
 . Open one of the notebooks
 . Copy the URL to the notebook
 . Logout
 . Paste the notebook URL you just copied
 
-The UI should ask you to log in. 
+|The UI should ask you to log in. 
+|
+
+|
+|4
+|
+a|
 
 . Click to log in
 . Fill in your username and password
 . Click `Login` button
 
-The notebook should appear in front of you. 
+|The notebook should appear in front of you. 
+|
 
-=== Change permissions in a notebook
+|
+|5
+|Change permissions in a notebook
+a|
 
 . Open a notebook
 . Click the lock icon on the top right to open permissions sidebar
 . Assign different permissions to several users
 . Click `Save`
 
-=== Change permissions for a folder
+|
+|
 
-=== Inspect accessible content
+|
+|6
+|Change permissions for a folder
+|
+|
+|
+
+|
+|7
+|Inspect accessible content
+a| 
 
 . Create new notebooks and change permissions, so you have:
 .. one notebook where you're the owner
@@ -709,6 +794,10 @@ The notebook should appear in front of you.
 .. If you're the writer, try if you can also do things only owners should be able to do
 .. If you're the runner, try if you can do things only owners and writers should be able to do
 .. If you're the reader, try if you can do more than read the content in the notebook
+
+|
+|
+|====
 
 == Admin Configuration Tools
 
