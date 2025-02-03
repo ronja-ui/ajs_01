@@ -515,6 +515,13 @@ a|
 
 |You should be able to see, which scheduled interval has been set for the notebook.
 |
+
+|
+|8
+|Inspect the progress of paragraph run
+|
+|
+|
 |====
 
 == Results Reporting
@@ -527,9 +534,20 @@ The user must be able to:
 * Share paragraph results
 * Export the dataset shown in results
 
-=== Inspect results after running a paragraph
+|====
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
 
-=== Configure graphs
+|
+|1
+|Inspect results after running a paragraph
+|
+|
+|
+
+|
+|2
+|Configure graphs
+a|
 
 Open a notebook and run the following query:
 
@@ -548,9 +566,13 @@ After the paragraph run has finished:
 .. x goes to y
 .. z goes to w
 
-As a result, you should have a fine looking line chart.
+|You should have a fine looking line chart.
+|
 
-=== Filter results
+|
+|3
+|Filter results
+a|
 
 Open a notebook and run the following query:
 
@@ -566,9 +588,23 @@ After the paragraph run has finished:
 . y
 . z
 
-=== Share paragraph's results
+|
+|
 
-=== Export the dataset
+|
+|4
+|Share paragraph's results
+|
+|
+|
+
+|
+|5
+|Export a dataset
+|
+|
+|
+|====
 
 == Collaborative Editing
 
