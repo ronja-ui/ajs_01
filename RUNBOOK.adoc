@@ -4,9 +4,9 @@
 
 The ajs_01 v1.0.0 release runbook is divided into the following sections:
 
-* Notebook management
-* Paragraph management 
-* Paragraph execution
+* <<notebook-management, Notebook management>>
+* <<paragraph-management, Paragraph management>>
+* <<paragraph-execution, Paragraph execution>>
 * Results reporting
 * Collarobative editing
 * Errors and notifications
@@ -40,7 +40,7 @@ The user must be able to:
 * Search for a notebook or a folder
 
 |====
-|Completed |No |Task |Step |Expected outcome |Unexpected outcome
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
 
 |
 |1
@@ -259,7 +259,7 @@ The user must be able to:
 * Remove a paragraph
 
 |====
-|Completed |No |Task |Step |Expected outcome |Unexpected outcome
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
 
 |
 |1
@@ -443,50 +443,79 @@ The user must be able to:
 * See the progress of paragraph's run
 * See the paragraph's execution metadata
 
-=== Run a paragraph and stop the run in the paragraph
+|====
+|Completed |No |Task |Steps |Expected outcome |Unexpected outcome
 
-To run a paragraph:
+|
+|1
+|Run a paragraph
+a|
 
 . Open a notebook
 . Write the following query in an empty editor: +
 `index=example earliest=-4y`
 . Click `Run paragraph` button next to the gear icon on the right
 
-After this the paragraph run should start. 
+|The paragraph run should start. 
+|
 
-To stop on-going paragraph run, click again the same button you clicked to start paragraph run. 
+|
+|2
+|Stop a paragraph run
+|To stop on-going paragraph run, click again the same button you clicked to start paragraph run. 
+|
+|
 
-=== Run all paragraphs and stop the run in the notebook
-
-To run all paragraphs:
+|
+|3
+|Run all paragraphs
+a|
 
 . Open a notebook
 . Ensure there are content in several paragraphs
 . Click the run button next to notebook's name
 
-After this, all paragraphs in the notebook should be in the pending state. 
+|All paragraphs in the notebook should be in the pending state. 
+|
 
-To stop the on-going run in the notebook, click again the same button next to the notebook's name. 
+|
+|4
+|Stop run for all paragraphs
+|To stop the on-going run in the notebook, click again the same button next to the notebook's name. 
+|
+|
 
-=== Run all paragraphs above and below
+|
+|5
+|Run all paragraphs above and below
+|
+|
+|
 
-=== Disable a run in a paragraph
-
-To disable a run in a paragraph:
+|
+|6
+|Disable the running for a paragraph
+a|
 
 . Open a notebook
 . Click the gear icon in paragraph's controls on the right side
 . Click `Disable run` button
 
-=== Schedule a run
+|
+|
 
-To schedule a run:
+|
+|7
+|Schedule a run
+a|
 
 . Open a notebook
 . Click the clock icon at the top of notebook
 . Click one of the buttons that contain pre-set interval times
 
-As a result, you should be able to see, which scheduled interval has been set for the notebook.
+|You should be able to see, which scheduled interval has been set for the notebook.
+|
+|====
 
 == Results Reporting
 
