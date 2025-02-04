@@ -493,19 +493,48 @@ The user must be able to:
 a|
 
 . Open a notebook
-. Write the following query in an empty editor: +
-`index=example earliest=-4y`
+. Write the following query in an empty editor: 
++
+----
+index=example earliest=-4y
+----
 . Click `Run paragraph` button next to the gear icon on the right
+. Wait for that the run is finished and results show up
 
-|The paragraph run should start. 
-|
+a|
+
+The status changes in this order: 
+
+. PENDING
+. RUNNING
+. FINISHED
+
+And when the run has finished, the result shows below the editor.
+
+a|
+
+* The run never finish 
+* The paragraph run never starts
 
 |
 |2
 |Stop a paragraph run
-|To stop on-going paragraph run, click again the same button you clicked to start paragraph run. 
-|
-|
+a|
+
+. Open a notebook
+. Write the following query in an empty editor: 
++
+----
+index=example earliest=-4y
+----
+. Click `Run paragraph` button next to the gear icon on the right
+. Click the pause icon to stop the run
+
+|The run stops immediately.
+a|
+
+* The run doesn't stop but continues loading results
+* The run doesn't stop immediately but it takes longer than a minute
 
 |
 |3
