@@ -563,7 +563,7 @@ a|
 . Click the run button next to notebook's name
 . Click the button again
 
-|The stops immediately
+|The run stops immediately
 a|
 
 * The run doesn't stop in a minute
@@ -573,8 +573,15 @@ a|
 |
 |5
 |Run all paragraphs above and below
-|
-|
+a|
+
+. Open a notebook that has more than two paragraphs
+. Select the paragraph that has at least one paragraph above and below
+. Click the gear icon 
+. Click `Run all above`
+. Click `Run all below` 
+
+|All paragraphs above and below the selected paragraph should have run.
 |
 
 |
