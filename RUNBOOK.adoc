@@ -545,15 +545,30 @@ a|
 . Ensure there are content in several paragraphs
 . Click the run button next to notebook's name
 
-|All paragraphs in the notebook should be in the pending state. 
-|
+|All paragraphs in the notebook should be in the pending state. After some time, all paragraphs should have run.
+a|
+
+* No paragraphs are run
+* Only some paragraphs are run
+* The run stops if even one paragraph faces an error during the run
+* The run never stops
 
 |
 |4
 |Stop run for all paragraphs
-|To stop the on-going run in the notebook, click again the same button next to the notebook's name. 
-|
-|
+a|
+
+. Open a notebook
+. Ensure there are content in several paragraphs
+. Click the run button next to notebook's name
+. Click the button again
+
+|The stops immediately
+a|
+
+* The run doesn't stop in a minute
+* The run never stops
+* The run stops only in some paragraphs
 
 |
 |5
