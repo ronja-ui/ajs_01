@@ -592,8 +592,9 @@ a|
 . Open a notebook
 . Click the gear icon in paragraph's controls on the right side
 . Click `Disable run` button
+. Click the run button next to notebook's name
 
-|
+|All paragraphs except the disabled paragraph should have run.
 |
 
 |
@@ -611,9 +612,22 @@ a|
 |
 |8
 |Inspect the progress of paragraph run
-|
-|
-|
+a|
+
+. Open a notebook
+. Run the following query:
++
+----
+%dpl
+index=join* earliest=-5y
+----
+. Inspect the progress of run
+
+|You should be able to see a progress bar and percentual status how the run is progressing.
+a|
+
+* The percentual status stays as 0% for several minutes and goes immediately to 100% just before the run finishes.
+* The percebtual status stays at 100% while the run is on-going.
 |====
 
 == Results Reporting
