@@ -2279,9 +2279,6 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 .logo {
   width: 100px;
 }
-.dark-mode .logo {
-  filter: brightness(100);
-}
 /* toasts */
 .toast {
   background-color: var(--grey-100);
