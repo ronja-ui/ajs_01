@@ -2385,12 +2385,16 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
     border-top: 1px solid var(--primary-600);
   }
 }
+.navbar-inverse .navbar-brand {
+  margin-right: 1.5rem;
+}
 .navbar-inverse .navbar-brand img {
   height: 30px;
+  /* show only the logo mark in small screens */
 }
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 460px) {
   .navbar-inverse .navbar-brand img {
-    width: 32px;
+    width: 31px;
     object-fit: cover;
     object-position: left center;
   }
