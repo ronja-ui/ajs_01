@@ -19,10 +19,12 @@
   --bs-font-monospace: monospace;
 }
 
+/* Set the base unit */
+html { font: 400 16px var(--font-body-text); }
+
 body {
   background: var(--grey-200);
   color: var(--grey-800);
-  font: 400 16px var(--font-body-text);
   &.dark-mode {
     color: var(--dm-grey-200);
     background: var(--dm-grey-800);
