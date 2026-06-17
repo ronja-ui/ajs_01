@@ -179,12 +179,12 @@ body.dark-mode {
 .btn {
   text-transform: uppercase;
   letter-spacing: 0.02rem;
-  font: 500 16px 'Roboto', sans-serif;
+  font: 500 var(--fs-2) 'Roboto', sans-serif;
 }
 .btn.btn-small,
 .btn.btn-sm {
-  padding: 3px 10px;
-  font-size: 14px;
+  padding: var(--p-1) var(--p-3);
+  font-size: var(--fs-1);
 }
 .btn.btn-dropdown {
   display: inline-block;
