@@ -964,37 +964,17 @@ body.dark-mode {
   border-radius: 5px;
 }
 .paragraph-editor pre {
-  margin-bottom: 0;
+  margin-bottom: var(--m-0);
   border-radius: 2px;
   /* fills the gap between bg and border */
 }
 .dark-mode .paragraph-editor {
   border: 2px solid var(--dm-grey-500);
 }
-.ace_scroller {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 34px;
-  right: 9px;
-  bottom: 0;
-  user-select: none;
-  cursor: text;
-}
-.ace_content {
-  position: absolute;
-  box-sizing: border-box;
-  min-width: 100%;
-  height: 100%;
-}
-.ace_layer.ace_text-layer {
-  padding: 0 10px;
-}
 .ace-tm {
   background-color: var(--grey-200) !important;
   color: var(--grey-700) !important;
   width: 100%;
-  margin-bottom: 5px;
 }
 .ace-tm .ace_gutter {
   background: var(--grey-400) !important;
@@ -1109,7 +1089,7 @@ body.dark-mode {
   color: var(--warning-200) !important;
 }
 .paragraph-text--dirty {
-  border-left: 4px solid #E67E22 !important;
+  border-left: 4px solid var(--warning-600) !important;
 }
 .paragraph .ace_print-margin {
   background: none !important;
