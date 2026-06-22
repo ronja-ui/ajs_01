@@ -1167,7 +1167,7 @@ body.dark-mode {
 }
 .form-control,
 input {
-  padding: 5px 10px 4px;
+  padding: var(--p-2) var(--p-4);
   color: var(--grey-900);
   border: 1px solid var(--grey-400);
   border-radius: 5px;
@@ -1191,6 +1191,10 @@ input.form-control-sm {
 .dark-mode .form-control::placeholder,
 .dark-mode input::placeholder {
   color: var(--dm-grey-200);
+}
+.form-control-lg {
+  padding: var(--p-3) var(--p-5);
+  font-size: var(--fs-3);
 }
 .form-select,
 select {
@@ -1733,56 +1737,6 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 .dark-mode .home-some a {
   color: var(--tertiary-200);
 }
-/* Notebook buttons */
-.btn-import,
-.btn-create {
-  background: var(--primary-700);
-  color: var(--primary-100);
-  border-color: var(--primary-700);
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: all 0.1s;
-}
-.btn-import:hover,
-.btn-create:hover,
-.btn-import:active,
-.btn-create:active,
-.btn-import:focus,
-.btn-create:focus {
-  background: var(--primary-800);
-  border-color: var(--primary-800);
-  color: var(--grey-000);
-  text-decoration: none;
-}
-.btn-import .fas,
-.btn-create .fas {
-  font-size: 16px;
-  line-height: normal;
-  color: var(--primary-300);
-}
-.dark-mode .btn-import,
-.dark-mode .btn-create {
-  background: var(--tertiary-200);
-  border-color: var(--tertiary-200);
-  color: var(--tertiary-900);
-  transition: all 0.1s;
-}
-.dark-mode .btn-import:hover,
-.dark-mode .btn-create:hover,
-.dark-mode .btn-import:active,
-.dark-mode .btn-create:active,
-.dark-mode .btn-import:focus,
-.dark-mode .btn-create:focus {
-  background: var(--tertiary-300);
-  border-color: var(--tertiary-300);
-}
-.dark-mode .btn-import .fas,
-.dark-mode .btn-create .fas {
-  color: var(--tertiary-600);
-}
 /* Sidebar */
 .sidebar {
   background: var(--grey-200);
@@ -1829,12 +1783,11 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 }
 .home-body-text .filter-names .form-control-search {
   position: absolute;
-  margin: 14px 0 0 16px;
-  font-size: 14px;
+  margin: calc(var(--p-3) + 1px) 0 0 var(--p-5);
+  font-size: var(--fs-3);
   color: var(--grey-500);
 }
 .home-body-text .filter-names input {
-  padding: 10px 15px 10px 40px;
   border-radius: 30px;
 }
 .dark-mode .home-body-text .filter-names .form-control-search {
@@ -1852,7 +1805,7 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 }
 .note-folder-item {
   background: var(--secondary-200);
-  padding: 10px 15px;
+  padding: var(--p-4) var(--p-5);
   border-radius: 5px;
 }
 .note-folder-item a {
@@ -1876,14 +1829,6 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 }
 .note-folder-item .fa-trash-alt {
   color: var(--secondary-500);
-}
-.fa-folder-open {
-  margin-right: 5px;
-  vertical-align: middle;
-}
-.fa-file {
-  margin-right: 6px;
-  vertical-align: middle;
 }
 .dark-mode .note-folder-item {
   background: var(--tertiary-800);
@@ -1927,7 +1872,7 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 }
 .note-folder-item-actions .fas {
   color: var(--secondary-700);
-  font-size: 15px;
+  font-size: var(--fs-2);
 }
 .note-folder-item-actions a:hover .fas {
   color: var(--secondary-500);
@@ -1950,9 +1895,6 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 .dark-mode .note-folder-item-actions .fa-times {
   color: var(--tertiary-300);
 }
-.fa-refresh {
-  vertical-align: middle;
-}
 .notebook-list-item .fas {
   color: var(--grey-500) !important;
 }
@@ -1962,9 +1904,9 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 /* Box */
 .box {
   border-style: solid;
-  min-height: 20px;
-  padding: 40px 35px;
-  margin-bottom: 20px;
+  min-height: 1.5rem;
+  padding: var(--p-8) var(--p-7);
+  margin-bottom: var(--m-6);
   background: var(--grey-000);
   border-color: var(--grey-300);
   border-width: 1px 1px 2px;

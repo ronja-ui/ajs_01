@@ -62,15 +62,15 @@ limitations under the License.
         </h1>
         <!-- Import and create notebooks -->
         <div class="mb-5 d-grid gap-2 d-lg-block">
-          <button class="btn btn-import me-lg-2"
-                  ng-click="openImportModal()">
-            <i class="fas fa-upload me-2"></i>
-            Import a notebook
-          </button>
-          <button class="btn btn-create"
+          <button class="btn btn-primary btn-lg me-lg-2"
                   ng-click="createNote()">
             <i class="fas fa-book me-2"></i>
             Create a new notebook
+          </button>
+          <button class="btn btn-secondary btn-lg"
+                  ng-click="openImportModal()">
+            <i class="fas fa-upload me-2"></i>
+            Import a notebook
           </button>
         </div>
         <h2 class="d-flex align-items-center">
@@ -91,7 +91,7 @@ limitations under the License.
               <i class="fas fa-magnifying-glass"></i>
             </span>
             <input type="text"
-                   class="note-name-query form-control"
+                   class="note-name-query form-control form-control-lg ps-5"
                    ng-click="$event.stopPropagation()"
                    placeholder="Search for a notebook"
                    ng-model="$parent.query.q"

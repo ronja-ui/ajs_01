@@ -46,9 +46,7 @@
 
 /* loading animation */
 
-.loader {
-  animation: spin 1s linear infinite;
-}
+.loader { animation: spin 1s linear infinite; }
 
 .dark-mode .loader {
   border: 4px solid var(--dm-grey-600);
@@ -56,18 +54,15 @@
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* front page */
 
 .home-some {
-  .fas, .fab {
+  .fas,
+  .fab {
     color: var(--primary-400);
   }
   a {
@@ -77,52 +72,11 @@
 }
 
 .dark-mode .home-some {
-  .fas, .fab {
+  .fas,
+  .fab {
     color: var(--tertiary-400);
   }
-  a {
-    color: var(--tertiary-200);
-  }
-}
-
-/* Notebook buttons */
-
-.btn-import, .btn-create {
-  background: var(--primary-700);
-  color: var(--primary-100);
-  border-color: var(--primary-700);
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: all 0.1s;
-  &:hover, &:active, &:focus {
-    background: var(--primary-800);
-    border-color: var(--primary-800);
-    color: var(--grey-000);
-    text-decoration: none;
-  }
-  .fas {
-    font-size: 16px;
-    line-height: normal;
-    color: var(--primary-300);
-  }
-}
-
-.dark-mode .btn-import,
-.dark-mode .btn-create {
-  background: var(--tertiary-200);
-  border-color: var(--tertiary-200);
-  color: var(--tertiary-900);
-  transition: all 0.1s;
-  &:hover, &:active, &:focus {
-    background: var(--tertiary-300);
-    border-color: var(--tertiary-300);
-  }
-  .fas {
-    color: var(--tertiary-600);
-  }
+  a { color: var(--tertiary-200); }
 }
 
 /* Sidebar */
@@ -131,18 +85,20 @@
   background: var(--grey-200);
   padding: 30px 35px 20px;
   border-radius: 20px;
-  .fas, .far, .fab {
+  .fas,
+  .far,
+  .fab {
     margin-right: 10px;
     color: var(--primary-400);
   }
-  p {
-    line-height: 22px;
-  }
+  p { line-height: 22px; }
 }
 
 .dark-mode .sidebar {
   background: var(--dm-grey-600);
-  .fas, .far, .fab {
+  .fas,
+  .far,
+  .fab {
     color: var(--tertiary-500);
   }
 }
@@ -153,35 +109,24 @@
   font-size: 0.7em;
   cursor: pointer;
   color: var(--primary-500);
-  &:hover {
-    color: var(--primary-600);
-  }
-  .fas {
-    color: var(--primary-300);
-  }
+  &:hover { color: var(--primary-600); }
+  .fas { color: var(--primary-300); }
 }
 
 .dark-mode .notebook-reload {
   color: var(--tertiary-400);
-  &:hover {
-    color: var(--tertiary-300);
-  }
-  .fas {
-    color: var(--tertiary-500);
-  }
+  &:hover { color: var(--tertiary-300); }
+  .fas { color: var(--tertiary-500); }
 }
 
 .home-body-text {
   .filter-names .form-control-search {
     position: absolute;
-    margin: 14px 0 0 16px;
-    font-size: 14px;
+    margin: calc(var(--p-3) + 1px) 0 0 var(--p-5);
+    font-size: var(--fs-3);
     color: var(--grey-500);
   }
-  .filter-names input {
-    padding: 10px 15px 10px 40px;
-    border-radius: 30px;
-  }
+  .filter-names input { border-radius: 30px; }
 }
 
 .dark-mode .home-body-text {
@@ -190,9 +135,7 @@
   }
   .filter-names input {
     border: 2px solid var(--dm-grey-500);
-    &::placeholder {
-      color: var(--dm-grey-300);
-    }
+    &::placeholder { color: var(--dm-grey-300); }
   }
 }
 
@@ -203,7 +146,7 @@
 
 .note-folder-item {
   background: var(--secondary-200);
-  padding: 10px 15px;
+  padding: var(--p-4) var(--p-5);
   border-radius: 5px;
   a {
     color: var(--secondary-900);
@@ -220,7 +163,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .fa-folder, .fa-folder-open {
+  .fa-folder,
+  .fa-folder-open {
     color: var(--secondary-400);
   }
   .fa-trash-alt {
@@ -228,75 +172,48 @@
   }
 }
 
-.fa-folder-open {
-  margin-right: 5px;
-  vertical-align: middle;
-}
-
-.fa-file {
-  margin-right: 6px;
-  vertical-align: middle;
-}
-
 .dark-mode .note-folder-item {
   background: var(--tertiary-800);
   a {
     color: var(--tertiary-100);
-    &:hover {
-      color: var(--tertiary-300);
-    }
+    &:hover { color: var(--tertiary-300); }
   }
-  .fa-folder, .fa-folder-open {
+  .fa-folder,
+  .fa-folder-open {
     color: var(--tertiary-500);
   }
-  .fa-trash-alt {
-    color: var(--secondary-300);
-  }
+  .fa-trash-alt { color: var(--secondary-300); }
 }
 
 .note-folder-item.ng-scope {
   background: var(--grey-200);
   a {
     color: var(--grey-900);
-    &:hover {
-      color: var(--grey-700);
-    }
+    &:hover { color: var(--grey-700); }
   }
-  .fa-file {
-    color: var(--grey-500);
-  }
+  .fa-file { color: var(--grey-500); }
 }
 
 .dark-mode .note-folder-item.ng-scope {
   background: var(--dm-grey-800);
   a {
     color: var(--dm-grey-100);
-    &:hover {
-      color: var(--dm-grey-300);
-    }
+    &:hover { color: var(--dm-grey-300); }
   }
-  .fa-file {
-    color: var(--dm-grey-500);
-  }
+  .fa-file { color: var(--dm-grey-500); }
 }
 
 .note-folder-item-actions {
   .fas {
     color: var(--secondary-700);
-    font-size: 15px;
+    font-size: var(--fs-2);
   }
-  a:hover .fas {
-    color: var(--secondary-500);
-  }
+  a:hover .fas { color: var(--secondary-500); }
 }
 
 .dark-mode .note-folder-item-actions {
-  .fas {
-    color: var(--tertiary-300);
-  }
-  a:hover .fas {
-    color: var(--tertiary-100);
-  }
+  .fas { color: var(--tertiary-300); }
+  a:hover .fas { color: var(--tertiary-100); }
 }
 
 .note-folder-item-actions .fa-trash-alt,
@@ -314,10 +231,6 @@
   color: var(--tertiary-300);
 }
 
-.fa-refresh {
-  vertical-align: middle;
-}
-
 .notebook-list-item .fas {
   color: var(--grey-500) !important;
 }
@@ -330,9 +243,9 @@
 
 .box {
   border-style: solid;
-  min-height: 20px;
-  padding: 40px 35px;
-  margin-bottom: 20px;
+  min-height: 1.5rem;
+  padding: var(--p-8) var(--p-7);
+  margin-bottom: var(--m-6);
   background: var(--grey-000);
   border-color: var(--grey-300);
   border-width: 1px 1px 2px;
