@@ -2626,13 +2626,17 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
  * a licensee so wish it.
  */
 /* Notebook */
+#notebookPage {
+  margin-top: 60px;
+  /* the height of navbar */
+  min-height: calc(100vh - 106px);
+}
 .notebook-mt {
-  margin-top: 105px !important;
-  padding-top: 26px;
+  padding-top: 100px;
   transition: all 0.5s;
 }
 .notebook-mt.collapsed {
-  margin-top: 50px !important;
+  padding-top: 50px !important;
   transition: all 0.5s;
 }
 /* Note-action */
@@ -2648,6 +2652,7 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
   width: 100%;
   min-height: 54px;
   z-index: 200;
+  transition: all 1s ease-in;
 }
 .note-action .navbar-toggler {
   padding: 0;
@@ -2659,6 +2664,7 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 .note-action .collapse-button {
   z-index: 300;
   margin-top: -2px;
+  transition: all 1s ease-in;
 }
 .note-action .btn-collapse {
   background: var(--grey-000);
@@ -2692,6 +2698,7 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
   max-height: 50px;
   box-shadow: 0 1px 5px var(--grey-400);
   border-bottom: 1px solid var(--grey-300);
+  transition: all 1s ease-in;
 }
 @media only screen and (max-width: 1200px) {
   .note-action .note-action-container {
@@ -4075,22 +4082,16 @@ table.dataTable .timestamp-table {
  * a licensee so wish it.
  */
 /* Report mode */
-.report-mode #notebookPage {
-  background: var(--grey-100);
-  min-height: calc(100vh - 106px);
-}
-.report-mode .paragraph-box {
-  border: 0;
-  border-radius: 0;
-  min-height: 0;
-  background: #F7FAFC;
-}
-.report-mode .paragraph-box:hover {
-  border: 0;
-}
 .report-mode .paragraph-box {
   padding: 0 !important;
   margin: 0 0 30px !important;
+  border: 0;
+  border-radius: 0;
+  min-height: 0;
+  background: var(--grey-100);
+}
+.report-mode .paragraph-box:hover {
+  border: 0;
 }
 .report-mode .graphContainer {
   margin-bottom: 0 !important;
@@ -4103,15 +4104,20 @@ table.dataTable .timestamp-table {
   display: none !important;
 }
 .report-mode .collapse-button {
-  margin-top: -3px;
+  display: none;
+  transition: all 1s ease-in;
 }
-.report-mode .btn-collapse {
-  border-left: 2px solid var(--grey-200);
-  border-bottom: 2px solid var(--grey-200);
-  border-right: 2px solid var(--grey-200);
+.report-mode .note-action {
+  position: relative;
+  top: 0;
+  padding: 64px 0 32px;
+  transition: all 1s ease-in;
 }
 .report-mode .note-action-container {
-  border-bottom: 2px solid var(--grey-200);
+  background-color: transparent;
+  border-bottom: 0;
+  box-shadow: none;
+  transition: all 1s ease-in;
 }
 .report-mode .note-action-container .label-btn > .btn,
 .report-mode .note-action-container .label-btn > .btn-group > .btn,
@@ -4122,6 +4128,14 @@ table.dataTable .timestamp-table {
 .report-mode .note-action-container .label-btn > .btn-group > .btn.rm-show,
 .report-mode .note-action-container .label-btn > .btn-group.rm-show > .btn {
   display: inline-block;
+}
+.report-mode .form-control_title {
+  font-size: 32px;
+  text-transform: none;
+}
+.report-mode .notebook-mt {
+  padding-top: 0;
+  transition: all 0.5s;
 }
 .report-mode .permissions {
   box-shadow: none;
@@ -4151,16 +4165,12 @@ table.dataTable .timestamp-table {
 .report-mode .timeset-info {
   display: none;
 }
-.dark-mode.report-mode #notebookPage {
-  background: var(--dm-grey-800);
-}
 .dark-mode.report-mode .btn-collapse {
-  border-left: 2px solid var(--dm-grey-500);
-  border-bottom: 2px solid var(--dm-grey-500);
-  border-right: 2px solid var(--dm-grey-500);
+  display: none;
 }
 .dark-mode.report-mode .note-action-container {
-  border-bottom: 2px solid var(--dm-grey-500);
+  border-bottom: 0;
+  background-color: transparent;
 }
 .dark-mode.report-mode .permissions {
   border-left: 2px solid var(--dm-grey-500);
