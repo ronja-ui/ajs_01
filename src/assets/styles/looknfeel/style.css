@@ -2652,7 +2652,6 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
   width: 100%;
   min-height: 54px;
   z-index: 200;
-  transition: all 1s ease-in;
 }
 .note-action .navbar-toggler {
   padding: 0;
@@ -2698,7 +2697,7 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
   max-height: 50px;
   box-shadow: 0 1px 5px var(--grey-400);
   border-bottom: 1px solid var(--grey-300);
-  transition: all 1s ease-in;
+  transition: all 0.5s ease-in;
 }
 @media only screen and (max-width: 1200px) {
   .note-action .note-action-container {
@@ -4120,13 +4119,12 @@ table.dataTable .timestamp-table {
   position: relative;
   top: 0;
   padding: 64px 0 32px;
-  transition: all 1s ease-in;
 }
 .report-mode .note-action-container {
   background-color: transparent;
   border-bottom: 0;
   box-shadow: none;
-  transition: all 1s ease-in;
+  transition: none;
 }
 .report-mode .note-action-container .label-btn > .btn,
 .report-mode .note-action-container .label-btn > .btn-group > .btn,
@@ -4148,8 +4146,12 @@ table.dataTable .timestamp-table {
   transition: all 0.5s;
 }
 .report-mode .permissions {
+  top: 60px;
+  height: calc(100% - 60px);
   box-shadow: none;
   border-left: 2px solid var(--grey-200);
+  z-index: 200;
+  /* goes on top of everything except note-action */
 }
 .report-mode .executionTime,
 .report-mode .nv-controlsWrap,
@@ -4175,18 +4177,23 @@ table.dataTable .timestamp-table {
 .report-mode .timeset-info {
   display: none;
 }
-.dark-mode.report-mode .btn-collapse {
-  display: none;
-}
 .dark-mode.report-mode .note-action-container {
   border-bottom: 0;
   background-color: transparent;
+  box-shadow: none;
+}
+.dark-mode.report-mode .paragraph .paragraph-title .paragraph-title-inactive {
+  color: var(--grey-000);
+}
+.dark-mode.report-mode .form-control_title {
+  color: var(--grey-000);
 }
 .dark-mode.report-mode .permissions {
   border-left: 2px solid var(--dm-grey-500);
 }
 .dark-mode.report-mode .paragraph-box {
-  background: var(--dm-grey-800);
+  background: var(--dm-grey-700);
+  box-shadow: none;
 }
 /*
  * Teragrep User Interface (ajs_01)
