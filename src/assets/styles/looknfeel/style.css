@@ -4083,12 +4083,12 @@ table.dataTable .timestamp-table {
  */
 /* Report mode */
 .report-mode .paragraph-box {
-  padding: 0 !important;
-  margin: 0 0 30px !important;
+  padding: 32px 32px 24px !important;
+  margin: 0 0 24px !important;
   border: 0;
-  border-radius: 0;
+  border-radius: 20px;
   min-height: 0;
-  background: var(--grey-100);
+  background: var(--grey-000);
 }
 .report-mode .paragraph-box:hover {
   border: 0;
@@ -4096,12 +4096,21 @@ table.dataTable .timestamp-table {
 .report-mode .graphContainer {
   margin-bottom: 0 !important;
 }
+.report-mode .paragraph-output {
+  overflow: auto;
+}
 .report-mode .paragraph {
   min-height: 32px;
   padding: 0 0 10px;
 }
 .report-mode .paragraph .control {
   display: none !important;
+}
+.report-mode .paragraph .paragraph-title .paragraph-title-inactive {
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--grey-900);
+  text-transform: none;
 }
 .report-mode .collapse-button {
   display: none;
@@ -4132,6 +4141,7 @@ table.dataTable .timestamp-table {
 .report-mode .form-control_title {
   font-size: 32px;
   text-transform: none;
+  color: var(--grey-900);
 }
 .report-mode .notebook-mt {
   padding-top: 0;
