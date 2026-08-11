@@ -19,7 +19,7 @@
 body {
   background: var(--grey-200);
   color: var(--grey-800);
-  font: 400 16px var(--font-body-text);
+  font: 400 16px 'Hind', sans-serif;
 }
 body.dark-mode {
   color: var(--dm-grey-200);
@@ -34,7 +34,8 @@ body.dark-mode {
 #nodePage,
 #repoPage,
 #searchResults {
-  margin-top: 90px;
+  margin-top: var(--navbar-height);
+  min-height: calc(100vh - var(--navbar-height));
 }
 .body-as-iframe {
   background: var(--grey-000) !important;
@@ -53,6 +54,26 @@ body.dark-mode {
 }
 .body-as-iframe ul.navbar-nav {
   display: flex;
+}
+.loader {
+  border: 4px solid var(--grey-500);
+  border-top: 4px solid var(--primary-600);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+.dark-mode .loader {
+  border: 4px solid var(--dm-grey-600);
+  border-top: 4px solid var(--primary-400);
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 /* backgrounds */
 .bg-secondary {
@@ -1891,23 +1912,16 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-/* loading animation */
-.loader {
-  animation: spin 1s linear infinite;
+/* home */
+.login {
+  min-height: inherit;
+  padding-bottom: var(--navbar-height);
+  /* gives the illusion that the content is vertically centered */
 }
-.dark-mode .loader {
-  border: 4px solid var(--dm-grey-600);
-  border-top: 4px solid var(--primary-400);
+.home-start {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-/* front page */
 .home-some .fas,
 .home-some .fab {
   color: var(--primary-400);
@@ -1997,6 +2011,9 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
   color: var(--tertiary-500);
 }
 /* Home's notebook list */
+.notebook-list {
+  padding-bottom: 3rem;
+}
 .notebook-reload {
   font-size: 0.7em;
   cursor: pointer;
@@ -2374,6 +2391,7 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
   background: var(--primary-700);
   color: var(--primary-100);
   border-bottom: 1px solid var(--primary-800);
+  height: var(--navbar-height);
 }
 @media only screen and (max-width: 991px) {
   .navbar-inverse .navbar-collapse {
@@ -2627,12 +2645,12 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
  */
 /* Notebook */
 .notebook-mt {
-  margin-top: 105px !important;
-  padding-top: 26px;
+  margin-top: calc(var(--navbar-height) + var(--note-action-height) + 1.75rem) !important;
+  padding-top: 1.5rem;
   transition: all 0.5s;
 }
 .notebook-mt.collapsed {
-  margin-top: 50px !important;
+  margin-top: calc(var(--navbar-height) + 1.5rem) !important;
   transition: all 0.5s;
 }
 /* Note-action */
@@ -2643,10 +2661,9 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 .note-action {
   margin: auto 0;
   position: fixed;
-  top: 56px;
+  top: var(--navbar-height);
   left: 0;
   width: 100%;
-  min-height: 54px;
   z-index: 200;
 }
 .note-action .navbar-toggler {
@@ -2689,7 +2706,7 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 }
 .note-action .note-action-container {
   background: white;
-  max-height: 50px;
+  height: var(--note-action-height);
   box-shadow: 0 1px 5px var(--grey-400);
   border-bottom: 1px solid var(--grey-300);
 }
@@ -3522,7 +3539,7 @@ div.dt-button-collection {
 .paragraph .control {
   background: var(--grey-100);
   color: var(--dm-grey-500);
-  font: 14px var(--font-body-text);
+  font-size: 12px;
   padding: 10px 40px;
   margin: 0 -40px 20px;
   border-radius: 20px 20px 0 0;
@@ -4733,7 +4750,8 @@ div > :first-child {
 }
 /* Markdown output */
 .markdown-body {
-  font: 16px var(--font-body-text) !important;
+  font-size: 16px !important;
+  font-family: 'Hind', sans-serif !important;
   color: var(--grey-800) !important;
 }
 .markdown-body h1,
@@ -4777,7 +4795,7 @@ div > :first-child {
   margin: 10px 0 !important;
   padding: 10px 15px !important;
   border-left: 5px solid var(--secondary-300) !important;
-  font-family: var(--font-body-text);
+  font-family: 'Hind', sans-serif;
   font-style: italic;
   font-size: 16px !important;
   background: white;

@@ -38,7 +38,8 @@ body {
 #nodePage,
 #repoPage,
 #searchResults {
-  margin-top: 90px;
+  margin-top: var(--navbar-height);
+  min-height: calc(100vh - var(--navbar-height));
 }
 
 .body-as-iframe {
