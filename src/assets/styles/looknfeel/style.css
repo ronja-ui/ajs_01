@@ -17,18 +17,19 @@
   --bs-font-monospace: monospace;
 }
 body {
-  background: var(--grey-200);
+  background: var(--grey-000);
   color: var(--grey-800);
   font: 400 16px 'Hind', sans-serif;
 }
 body.dark-mode {
   color: var(--dm-grey-200);
-  background: var(--dm-grey-800);
+  background: var(--dm-grey-900);
 }
 #clusterPage,
 #credentialPage,
 #configurationPage,
 #homePage,
+#notebookPage,
 #interpreterPage,
 #jobPage,
 #nodePage,
@@ -36,6 +37,26 @@ body.dark-mode {
 #searchResults {
   margin-top: var(--navbar-height);
   min-height: calc(100vh - var(--navbar-height));
+}
+#clusterPage,
+#credentialPage,
+#configurationPage,
+#interpreterPage,
+#jobPage,
+#nodePage,
+#repoPage,
+#notebookPage {
+  background-color: var(--grey-200);
+}
+.dark-mode #clusterPage,
+.dark-mode #credentialPage,
+.dark-mode #configurationPage,
+.dark-mode #interpreterPage,
+.dark-mode #jobPage,
+.dark-mode #nodePage,
+.dark-mode #repoPage,
+.dark-mode #notebookPage {
+  background-color: var(--dm-grey-800);
 }
 .body-as-iframe {
   background: var(--grey-000) !important;
@@ -1937,121 +1958,33 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
 .dark-mode .home-some a {
   color: var(--tertiary-200);
 }
-/* Notebook buttons */
-.btn-import,
-.btn-create {
-  background: var(--primary-700);
-  color: var(--primary-100);
-  border-color: var(--primary-700);
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: all 0.1s;
-}
-.btn-import:hover,
-.btn-create:hover,
-.btn-import:active,
-.btn-create:active,
-.btn-import:focus,
-.btn-create:focus {
-  background: var(--primary-800);
-  border-color: var(--primary-800);
-  color: var(--grey-000);
-  text-decoration: none;
-}
-.btn-import .fas,
-.btn-create .fas {
-  font-size: 16px;
-  line-height: normal;
-  color: var(--primary-300);
-}
-.dark-mode .btn-import,
-.dark-mode .btn-create {
-  background: var(--tertiary-200);
-  border-color: var(--tertiary-200);
-  color: var(--tertiary-900);
-  transition: all 0.1s;
-}
-.dark-mode .btn-import:hover,
-.dark-mode .btn-create:hover,
-.dark-mode .btn-import:active,
-.dark-mode .btn-create:active,
-.dark-mode .btn-import:focus,
-.dark-mode .btn-create:focus {
-  background: var(--tertiary-300);
-  border-color: var(--tertiary-300);
-}
-.dark-mode .btn-import .fas,
-.dark-mode .btn-create .fas {
-  color: var(--tertiary-600);
-}
-/* Sidebar */
-.sidebar {
-  background: var(--grey-200);
-  padding: 30px 35px 20px;
-  border-radius: 20px;
-}
-.sidebar .fas,
-.sidebar .far,
-.sidebar .fab {
-  margin-right: 10px;
-  color: var(--primary-400);
-}
-.sidebar p {
-  line-height: 22px;
-}
-.dark-mode .sidebar {
-  background: var(--dm-grey-600);
-}
-.dark-mode .sidebar .fas,
-.dark-mode .sidebar .far,
-.dark-mode .sidebar .fab {
-  color: var(--tertiary-500);
-}
 /* Home's notebook list */
 .notebook-list {
   padding-bottom: 3rem;
 }
-.notebook-reload {
-  font-size: 0.7em;
-  cursor: pointer;
-  color: var(--primary-500);
-}
-.notebook-reload:hover {
-  color: var(--primary-600);
-}
-.notebook-reload .fas {
-  color: var(--primary-300);
-}
-.dark-mode .notebook-reload {
-  color: var(--tertiary-400);
-}
-.dark-mode .notebook-reload:hover {
-  color: var(--tertiary-300);
-}
-.dark-mode .notebook-reload .fas {
-  color: var(--tertiary-500);
-}
 .home-body-text .filter-names .form-control-search {
   position: absolute;
-  margin: 14px 0 0 16px;
+  margin: 0.7rem 0 0 1rem;
   font-size: 14px;
   color: var(--grey-500);
 }
 .home-body-text .filter-names input {
-  padding: 10px 15px 10px 40px;
-  border-radius: 30px;
+  background-color: var(--grey-200);
+  border-color: var(--grey-200);
+  padding-left: 2.5rem;
+}
+.home-body-text .filter-names input::placeholder {
+  color: var(--grey-600);
 }
 .dark-mode .home-body-text .filter-names .form-control-search {
-  color: var(--dm-grey-100);
+  color: var(--dm-grey-300);
 }
 .dark-mode .home-body-text .filter-names input {
-  border: 2px solid var(--dm-grey-500);
+  background-color: var(--dm-grey-800);
+  border: 1px solid var(--dm-grey-800);
 }
 .dark-mode .home-body-text .filter-names input::placeholder {
-  color: var(--dm-grey-300);
+  color: var(--dm-grey-400);
 }
 .notebook-list-btn {
   cursor: pointer;
@@ -2645,12 +2578,11 @@ div.dtsp-panesContainer div.dtsp-searchPane div.dtsp-topRow button {
  */
 /* Notebook */
 .notebook-mt {
-  margin-top: calc(var(--navbar-height) + var(--note-action-height) + 1.75rem) !important;
-  padding-top: 1.5rem;
+  padding-top: calc(var(--note-action-height) + 2.75rem);
   transition: all 0.5s;
 }
 .notebook-mt.collapsed {
-  margin-top: calc(var(--navbar-height) + 1.5rem) !important;
+  padding-top: 2.75rem;
   transition: all 0.5s;
 }
 /* Note-action */

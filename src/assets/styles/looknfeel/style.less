@@ -20,12 +20,12 @@
 }
 
 body {
-  background: var(--grey-200);
+  background: var(--grey-000);
   color: var(--grey-800);
   font: 400 16px var(--font-body-text);
   &.dark-mode {
     color: var(--dm-grey-200);
-    background: var(--dm-grey-800);
+    background: var(--dm-grey-900);
   }
 }
 
@@ -33,6 +33,7 @@ body {
 #credentialPage,
 #configurationPage,
 #homePage,
+#notebookPage,
 #interpreterPage,
 #jobPage,
 #nodePage,
@@ -40,6 +41,28 @@ body {
 #searchResults {
   margin-top: var(--navbar-height);
   min-height: calc(100vh - var(--navbar-height));
+}
+
+#clusterPage,
+#credentialPage,
+#configurationPage,
+#interpreterPage,
+#jobPage,
+#nodePage,
+#repoPage,
+#notebookPage {
+  background-color: var(--grey-200);
+}
+
+.dark-mode #clusterPage,
+.dark-mode #credentialPage,
+.dark-mode #configurationPage,
+.dark-mode #interpreterPage,
+.dark-mode #jobPage,
+.dark-mode #nodePage,
+.dark-mode #repoPage,
+.dark-mode #notebookPage {
+  background-color: var(--dm-grey-800);
 }
 
 .body-as-iframe {
