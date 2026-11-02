@@ -67,8 +67,19 @@
 /* front page */
 
 .login {
-  min-height: inherit;
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.login-bottom-padding {
   padding-bottom: var(--navbar-height); /* gives the illusion that the content is vertically centered */
+}
+
+.login-illustration {
+  background-color: var(--primary-100);
+}
+
+.login-illustration-content {
+  height: 100%;
 }
 
 .home-start {
