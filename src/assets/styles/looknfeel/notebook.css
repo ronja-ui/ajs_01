@@ -407,11 +407,11 @@
   border-top: 1px solid var(--grey-300);
   border-left: 1px solid var(--grey-400);
   position: fixed;
-  top: 93px;
+  top: calc(var(--navbar-height) + var(--note-action-height));
   right: 0;
   z-index: 141;
   width: 450px;
-  height: calc(100% - 93px);
+  height: calc(100vh - var(--navbar-height) - var(--note-action-height));
   h2 {
     font-size: 20px;
   }
