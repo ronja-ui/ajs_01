@@ -64,7 +64,7 @@
   }
 }
 
-/* front page */
+/* login page */
 
 .login {
   min-height: calc(100vh - var(--navbar-height));
@@ -78,9 +78,11 @@
   background-color: var(--primary-100);
 }
 
-.login-illustration-content {
-  height: 100%;
+.dark-mode .login-illustration {
+  background-color: var(--primary-700);
 }
+
+/* front page */
 
 .home-start {
   padding-top: 6rem;

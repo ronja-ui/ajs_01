@@ -20,7 +20,7 @@ limitations under the License.
        ng-if="!ticket">
     <div class="row login align-items-center">
       <div class="col-lg-6 d-none d-lg-block login-illustration login-bottom-padding align-self-stretch">
-        <div class="row align-items-center login-illustration-content">
+        <div class="row align-items-center h-100">
           <div class="col">
             <img src="../../assets/images/home.svg"
                  class="img-fluid"
@@ -28,38 +28,54 @@ limitations under the License.
           </div>
         </div>
       </div>
-      <div class="col text-center text-lg-start">
+      <div class="col-xxl-4 col-xl-5 col-lg-6 login-bottom-padding">
         <div class="px-5">
           <h1 class="mb-3">
-            Know Everything
+            Login
           </h1>
           <p>
-            Teragrep is an analytics software for processing and visualizing data.
+            Start your analytics journey by signing in.
           </p>
-          <p>
-            Start your journey with Teragrep by signing in.
-          </p>
+          <form class="mt-4 mb-5">
+            <div class="row" ng-show="loginParams.errorText">
+              <div class="col-12">
+                <div class="alert alert-danger ng-binding" role="alert">
+
+                </div>
+              </div>
+            </div>
+            <label for="userName" class="form-label">
+              Username
+            </label>
+            <input placeholder="Enter username"
+                   type="text"
+                   class="form-control mb-3"
+                   id="userName"
+                   required=""
+                   ng-disabled="SigningIn"
+                   ng-enter="login()"
+                   ng-keypress="loginParams.errorText = ''"
+                   ng-model="loginParams.userName">
+            <label for="password" class="form-label">
+              Password
+            </label>
+            <input placeholder="Enter password"
+                   type="password"
+                   class="form-control mb-4"
+                   id="password"
+                   required=""
+                   ng-disabled="SigningIn"
+                   ng-enter="login()"
+                   ng-keypress="loginParams.errorText = ''"
+                   ng-model="loginParams.password">
+            <button type="button"
+                    class="btn btn-primary"
+                    ng-click="login()">
+              Login
+            </button>
+          </form>
           <hr>
-          <div class="row home-some justify-content-center justify-content-lg-start">
-            <div class="col-auto">
-              <i class="fas fa-globe me-2"></i>
-              <a target="_blank" href="https://teragrep.com">
-                Website
-              </a>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-book me-2"></i>
-              <a target="_blank" href="https://docs.teragrep.com">
-                Documentation
-              </a>
-            </div>
-            <div class="col-auto">
-              <i class="fab fa-github me-2"></i>
-              <a target="_blank" href="https://github.com/teragrep/teragrep">
-                Github
-              </a>
-            </div>
-          </div>
+          <p>Forgot your username or password? Please contact your admin.</p>
         </div>
       </div>
     </div>
