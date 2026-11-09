@@ -19,7 +19,7 @@
   border-radius: var(--input-radius);
   pre {
     margin-bottom: 0;
-    border-radius: calc(var(--input-radius) / 2); /* fills the gap between bg and border */
+    border-radius: calc(var(--input-radius) /  1.3); /* fills the gap between bg and border */
   }
 }
 
