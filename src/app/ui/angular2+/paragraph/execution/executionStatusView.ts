@@ -48,13 +48,15 @@ import {Component, input} from '@angular/core';
 @Component({
   selector: 'execution-status',
   template: `
-    @if (executionIsOngoing()) {
-      <div class="spinner-grow spinner-grow-sm text-primary mb-3 me-3" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    }
     <div class="d-flex align-items-center">
-      <p class="text-uppercase">{{ executionStatus() }} - {{ timeInfoText() }}</p>
+      @if (executionIsOngoing()) {
+        <div class="spinner-grow spinner-grow-sm text-primary mb-3 me-3" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      }
+      <div class="d-flex align-items-center">
+        <p class="text-uppercase">{{ executionStatus() }} - {{ timeInfoText() }}</p>
+      </div>
     </div>
   `
 })
