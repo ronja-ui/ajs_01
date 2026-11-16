@@ -43,12 +43,13 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-import {Component, input} from '@angular/core';
+import {Component, ElementRef, input, OnDestroy, ViewChild} from '@angular/core';
 import {Editor} from '../../../../objects/paragraph/editor/editor';
 import {Output} from '../../../../objects/output/output';
 import {RenderNodeRootView} from '../../renderNodeRoot/renderNodeRootView';
 import {Paragraph} from '../../../../objects/paragraph/paragraph';
 import {Execution} from '../../../../objects/paragraph/execution/execution';
+import {Toast} from 'bootstrap';
 
 @Component({
   selector: 'action-bar',
@@ -89,18 +90,37 @@ import {Execution} from '../../../../objects/paragraph/execution/execution';
         <render-node-host [renderNode]="execution().executionStatus()()"></render-node-host>
       </div>
     </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div #copyParagraphLinkNotification class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Notification</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Paragraph link copied to clipboard.
+        </div>
+      </div>
+    </div>
     <hr>
   `
 })
-export class ActionBarView {
+export class ActionBarView implements OnDestroy {
   paragraph = input.required<Paragraph>();
   editor = input.required<Editor>();
   output = input.required<Output>();
   execution = input.required<Execution>();
 
+  @ViewChild('copyParagraphLinkNotification') copyParagraphLinkNotification!: ElementRef<HTMLDivElement>;
+
   async copyParagraphLink():Promise<void>{
     const location = new URL(window.location.href);
     const paragraphLink = `${location.toString()}#${this.paragraph().id()}`;
     await navigator.clipboard.writeText(paragraphLink);
+    const notification = Toast.getOrCreateInstance(this.copyParagraphLinkNotification.nativeElement);
+    notification.show();
+  }
+
+  ngOnDestroy():void {
+    Toast.getInstance(this.copyParagraphLinkNotification?.nativeElement)?.dispose();
   }
 }
