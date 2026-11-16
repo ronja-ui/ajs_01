@@ -44,7 +44,7 @@
  * a licensee so wish it.
  */
 import {Component, input} from '@angular/core';
-import {Execution} from '../../../../objects/paragraph/execution/execution';
+import {Executor} from '../../../../objects/paragraph/executor/executor';
 
 @Component({
   selector:'executor',
@@ -69,5 +69,5 @@ import {Execution} from '../../../../objects/paragraph/execution/execution';
 })
 export class ExecutorView {
   executionIsOngoing = input.required<boolean>();
-  executor = input.required<Execution>();
+  executor = input.required<Executor>();
 }

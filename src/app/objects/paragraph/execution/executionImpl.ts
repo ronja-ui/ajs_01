@@ -44,23 +44,63 @@
  * a licensee so wish it.
  */
 import {Execution} from './execution';
+import {computed, signal, Signal, WritableSignal} from '@angular/core';
+import {RenderNode} from '../../rendering/renderNode/renderNode';
+import {RegisteredComponents} from '../../../ui/angular2+/componentRegistry/registeredComponents';
+import {RenderNodeImpl} from '../../rendering/renderNode/renderNodeImpl';
 import {Requestable} from '../../channel/requestable';
 
 export class ExecutionImpl implements Execution {
-  private readonly _requestable:Requestable;
+  private readonly _requestable: Requestable;
+  private readonly _startExecution:Signal<RenderNode>;
+  private readonly _cancelExecution:Signal<RenderNode>;
+  private readonly _executorView:WritableSignal<RenderNode>;
+  private readonly _executionStatusView:Signal<RenderNode>;
 
-  constructor(requestable:Requestable) {
+  constructor(requestable: Requestable) {
     this._requestable = requestable;
+    this._startExecution = signal(new RenderNodeImpl(RegisteredComponents.START_EXECUTION_VIEW,
+      computed(() => ({startExecutionCallback:() => this.startExecution()}
+      ))));
+    this._cancelExecution = signal(new RenderNodeImpl(RegisteredComponents.CANCEL_EXECUTION_VIEW,
+      computed(() => ({cancelExecutionCallback:() => this.cancelExecution()}
+      ))));
+    this._executorView = signal(this._startExecution());
+    this._executionStatusView = signal(new RenderNodeImpl(RegisteredComponents.EXECUTION_STATUS_VIEW, computed(() => ({
+      executionIsOngoing:false,
+      timeInfoText:'',
+      executionStatus: ''
+    }))));
   }
 
-  start():void {
+  executionStatus(): Signal<RenderNode> {
+    return this._executionStatusView;
+  }
+
+  executor(): Signal<RenderNode> {
+    return this._executorView;
+  }
+
+  executionIsOngoing(): Signal<boolean> {
+      throw new Error('Method not implemented.');
+  }
+
+
+  response(json: object): void {
+  }
+
+  private executionIsOnGoing(status:string): boolean {
+    return status === 'RUNNING' || status === 'PENDING';
+  }
+
+  private startExecution():void {
     this._requestable.request({
       op:'START_EXECUTION',
       data:{}
     });
   }
 
-  cancel():void {
+  private cancelExecution():void {
     this._requestable.request({
       op:'CANCEL_EXECUTION',
       data:{}

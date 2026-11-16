@@ -48,20 +48,17 @@ import {Editor} from '../../../../objects/paragraph/editor/editor';
 import {Output} from '../../../../objects/output/output';
 import {RenderNode} from '../../../../objects/rendering/renderNode/renderNode';
 import {RenderNodeRootView} from '../../renderNodeRoot/renderNodeRootView';
-import {StatusView} from '../status/statusView';
 import {Paragraph} from '../../../../objects/paragraph/paragraph';
 
 @Component({
   selector: 'action-bar',
   imports: [
     RenderNodeRootView,
-    StatusView
   ],
   template: `
     <hr>
     <div class="d-flex align-items-center">
       <render-node-host [renderNode]="executor()"></render-node-host>
-      <fieldset [disabled]="executionIsOngoing()">
         <button class="btn btn-link btn-sm"
                 (click)="editor().clear()">
           <i class="fas fa-eraser"
@@ -86,10 +83,8 @@ import {Paragraph} from '../../../../objects/paragraph/paragraph';
              title="Clear output">
           </i>
         </button>
-      </fieldset>
       <div class="ms-auto d-flex align-items-center">
-        <execution-status [isLoading]="executionIsOngoing()"></execution-status>
-        <render-node-host [renderNode]="timeInfo()"></render-node-host>
+        <render-node-host [renderNode]="executionStatus()"></render-node-host>
       </div>
     </div>
     <hr>
@@ -99,9 +94,8 @@ export class ActionBarView {
   paragraph = input.required<Paragraph>();
   editor = input.required<Editor>();
   output = input.required<Output>();
+  executionStatus = input.required<RenderNode>();
   executor = input.required<RenderNode>();
-  executionIsOngoing = input.required<boolean>();
-  timeInfo = input.required<RenderNode>();
 
   copyParagraphLink():void{
 
