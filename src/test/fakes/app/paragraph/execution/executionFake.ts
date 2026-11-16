@@ -43,7 +43,33 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-import {Respondable} from '../../channel/respondable';
-import {Printable} from '../../rendering/printable/printable';
+import {Execution} from '../../../../../app/objects/paragraph/execution/execution';
+import {signal, Signal} from '@angular/core';
+import {RenderNode} from '../../../../../app/objects/rendering/renderNode/renderNode';
+import {RenderNodeFake} from '../../renderNode/renderNodeFake';
 
-export interface TimeInfo extends Respondable, Printable {}
+export class ExecutionFake implements Execution {
+  private readonly _executionIsOngoing:Signal<boolean>;
+  private readonly _executionStatus:Signal<RenderNode>;
+  private readonly _executor:Signal<RenderNode>;
+
+  constructor() {
+    this._executionIsOngoing = signal(false);
+    this._executionStatus = signal(new RenderNodeFake());
+    this._executor = signal(new RenderNodeFake());
+  }
+
+  executionIsOngoing(): Signal<boolean> {
+    return this._executionIsOngoing;
+  }
+
+  executionStatus(): Signal<RenderNode> {
+    return this._executionStatus;
+  }
+
+  executor(): Signal<RenderNode> {
+    return this._executor;
+  }
+
+  response(json: object): void {}
+}

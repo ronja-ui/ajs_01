@@ -50,7 +50,6 @@ import {computed, signal, Signal} from '@angular/core';
 import {RenderNode} from '../../rendering/renderNode/renderNode';
 import {RenderNodeImpl} from '../../rendering/renderNode/renderNodeImpl';
 import {RegisteredComponents} from '../../../ui/angular2+/componentRegistry/registeredComponents';
-import {TimeInfo} from '../timeInfo/timeInfo';
 import {Paragraph} from '../paragraph';
 import {Execution} from '../execution/execution';
 
@@ -60,7 +59,6 @@ export class ActionBar implements Printable{
   constructor(paragraph:Paragraph,
               editor:Editor,
               output:Output,
-              timeInfo:TimeInfo,
               execution:Execution,
               ) {
     this._printSignal = signal(new RenderNodeImpl(RegisteredComponents.ACTION_BAR_VIEW, computed(() => ({

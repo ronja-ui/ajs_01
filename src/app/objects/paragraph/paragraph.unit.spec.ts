@@ -54,8 +54,7 @@ import {IdFakeImpl} from '../../../test/fakes/server/id/idFakeImpl';
 import {EditorFake} from '../../../test/fakes/app/paragraph/editor/editorFake';
 import {OutputFake} from '../../../test/fakes/app/output/outputFake';
 import {DplLogFake} from '../../../test/fakes/app/paragraph/dplLog/dplLogFake';
-import {StatusFake} from '../../../test/fakes/app/paragraph/status/statusFake';
-import {TimeInfoFake} from '../../../test/fakes/app/paragraph/timeInfo/timeInfoFake';
+import {ExecutionFake} from '../../../test/fakes/app/paragraph/execution/executionFake';
 
 describe('Paragraph', () => {
   let requestable: Requestable;
@@ -146,37 +145,19 @@ describe('Paragraph', () => {
     expect(responseSpy).toHaveBeenCalledExactlyOnceWith(response);
   });
 
-  it('Should respond Status', () => {
+  it('Should respond Execution', () => {
     requestable = new FakeChannel();
     const paragraphState = new ServerParagraphFakeImpl().paragraphState();
     const editor = new EditorFake();
     const output = new OutputFake();
     const dplLog = new DplLogFake();
-    const status = new StatusFake();
-    paragraph = new ParagraphImpl(requestable, new WebSocketPayloadImpl(paragraphState), editor, output, dplLog, status);
+    const execution = new ExecutionFake();
+    paragraph = new ParagraphImpl(requestable, new WebSocketPayloadImpl(paragraphState), editor, output, dplLog, execution);
     const response = {
       op:'',
       data:{}
     };
-    const responseSpy = vi.spyOn(status, 'response');
-    paragraph.response(response);
-    expect(responseSpy).toHaveBeenCalledExactlyOnceWith(response);
-  });
-
-  it('Should respond TimeInfo', () => {
-    requestable = new FakeChannel();
-    const paragraphState = new ServerParagraphFakeImpl().paragraphState();
-    const editor = new EditorFake();
-    const output = new OutputFake();
-    const dplLog = new DplLogFake();
-    const status = new StatusFake();
-    const timeInfo = new TimeInfoFake();
-    paragraph = new ParagraphImpl(requestable, new WebSocketPayloadImpl(paragraphState), editor, output, dplLog, status, timeInfo);
-    const response = {
-      op:'',
-      data:{}
-    };
-    const responseSpy = vi.spyOn(status, 'response');
+    const responseSpy = vi.spyOn(execution, 'response');
     paragraph.response(response);
     expect(responseSpy).toHaveBeenCalledExactlyOnceWith(response);
   });
