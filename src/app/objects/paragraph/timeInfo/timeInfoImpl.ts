@@ -52,20 +52,41 @@ import {RegisteredComponents} from '../../../ui/angular2+/componentRegistry/regi
 import {Status} from '../status/status';
 
 export class TimeInfoImpl implements TimeInfo {
-  private readonly _elapsed:WritableSignal<string>;
   private readonly _printSignal:Signal<RenderNode>;
+  private readonly _timeInfoValue:WritableSignal<string>;
+  private readonly _timeInfoFunctions:Readonly<Record<string, (...args:unknown[]) => string>>;
 
   constructor(paragraphState: WebSocketPayload, status:Status) {
-    this._elapsed = signal(paragraphState.stringProperty('dateFinished'));
+
+
     this._printSignal = signal(new RenderNodeImpl(RegisteredComponents.TIME_INFO_VIEW, computed(() => ({
       status:status.toString()(),
-      elapsed:this._elapsed(),
+      timeInfoValue:''
     }))));
+
+    this._timeInfoFunctions = {
+      'RUNNING': () => this.calculateElapsedTime(),
+      'PENDING': () => this.calculateElapsedTime(),
+      'FINISHED':() => this.calculateExecutionTime()
+    };
   }
 
   print(): Signal<RenderNode> {
     return this._printSignal;
   }
 
-  response(json: object): void {}
+  response(json: object): void {
+
+  }
+
+  private calculateElapsedTime():string{
+
+    return '';
+  }
+
+  private calculateExecutionTime():string{
+
+    // let desc = `Took ${durationFormat}. Last updated by ${user} at ${endFormat}.`;
+    return '';
+  }
 }

@@ -49,11 +49,11 @@ import {Component, input} from '@angular/core';
   selector: 'time-info',
   template: `
     <div class="d-flex align-items-center">
-      <p class="text-uppercase">{{status()}} - {{elapsed()}}</p>
+      <p class="text-uppercase">{{ status() }} - {{ timeInfoValue() }}</p>
     </div>
   `
 })
 export class TimeInfoView {
   status = input.required<string>();
-  elapsed = input.required<string>();
+  timeInfoValue = input.required<string>();
 }
