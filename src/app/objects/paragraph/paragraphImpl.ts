@@ -63,9 +63,9 @@ import {DplLogImpl} from './dplLog/dplLogImpl';
 import {TimeInfoImpl} from './timeInfo/timeInfoImpl';
 import {DplLog} from './dplLog/dplLog';
 import {TimeInfo} from './timeInfo/timeInfo';
-import {ExecutionImpl} from './execution/executionImpl';
 import {Status} from './status/status';
 import {StatusImpl} from './status/statusImpl';
+import {ExecutorImpl} from './executor/executorImpl';
 
 export class ParagraphImpl implements Paragraph {
   private readonly _requestable: Requestable;
@@ -93,7 +93,7 @@ export class ParagraphImpl implements Paragraph {
     this._output = output;
     this._status = status;
     this._timeInfo = timeInfo;
-    const actionBar = new ActionBar(this, editor, output, this._timeInfo, new ExecutionImpl(this), this._status);
+    const actionBar = new ActionBar(this, editor, output, this._timeInfo, new ExecutorImpl(this, this._status), this._status);
     this._renderNode = signal(new RenderNodeImpl(RegisteredComponents.PARAGRAPH_VIEW, computed(() => ({
       editor:this._editor.print()(),
       actionBar: actionBar.print()(),

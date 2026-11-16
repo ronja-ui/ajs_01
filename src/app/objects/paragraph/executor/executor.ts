@@ -44,24 +44,8 @@
  * a licensee so wish it.
  */
 import {Printable} from '../../rendering/printable/printable';
-import {computed, signal, Signal} from '@angular/core';
-import {RenderNode} from '../../rendering/renderNode/renderNode';
-import {Execution} from '../execution/execution';
-import {Status} from '../status/status';
-import {RegisteredComponents} from '../../../ui/angular2+/componentRegistry/registeredComponents';
-import {RenderNodeImpl} from '../../rendering/renderNode/renderNodeImpl';
 
-export class Executor implements Printable {
-  private readonly _printSignal:Signal<RenderNode>;
-
-  constructor(execution:Execution, status:Status) {
-    this._printSignal = signal(new RenderNodeImpl(RegisteredComponents.EXECUTOR_VIEW, computed(() => ({
-      executionIsOngoing:status.isExecuting()(),
-      execution:execution
-    }))));
-  }
-
-  print(): Signal<RenderNode> {
-    return this._printSignal;
-  }
+export interface Executor extends Printable {
+  start():void;
+  cancel():void;
 }

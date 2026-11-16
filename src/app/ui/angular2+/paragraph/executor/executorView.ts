@@ -51,7 +51,7 @@ import {Execution} from '../../../../objects/paragraph/execution/execution';
   template:`
     @if (!executionIsOngoing()) {
       <button class="btn btn-link btn-sm"
-              (click)="execution().start()">
+              (click)="executor().start()">
         <i class="fas fa-play"
            role="button"
            title="Run this paragraph (Shift+Enter)">
@@ -59,7 +59,7 @@ import {Execution} from '../../../../objects/paragraph/execution/execution';
       </button>
     } @else {
       <button class="btn btn-link btn-sm"
-              (click)="execution().cancel()">
+              (click)="executor().cancel()">
         <i class="fas fa-pause"
            title="Cancel">
         </i>
@@ -69,5 +69,5 @@ import {Execution} from '../../../../objects/paragraph/execution/execution';
 })
 export class ExecutorView {
   executionIsOngoing = input.required<boolean>();
-  execution = input.required<Execution>();
+  executor = input.required<Execution>();
 }
