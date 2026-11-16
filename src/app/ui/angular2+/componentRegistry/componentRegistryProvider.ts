@@ -67,6 +67,7 @@ import {ActionBarView} from '../paragraph/actionBar/actionBarView';
 import {StartExecutionView} from '../paragraph/execution/startExecutionView';
 import {CancelExecutionView} from '../paragraph/execution/cancelExecutionView';
 import {ExecutionStatusView} from '../paragraph/execution/executionStatusView';
+import {TitleView} from '../paragraph/title/titleView';
 
 export const ComponentRegistryProvider: Provider = {
   provide: COMPONENT_REGISTRY,
@@ -92,5 +93,6 @@ export const ComponentRegistryProvider: Provider = {
     [RegisteredComponents.EXECUTION_STATUS_VIEW, ExecutionStatusView],
     [RegisteredComponents.START_EXECUTION_VIEW, StartExecutionView],
     [RegisteredComponents.CANCEL_EXECUTION_VIEW, CancelExecutionView],
+    [RegisteredComponents.TITLE_VIEW, TitleView]
   ])
 };

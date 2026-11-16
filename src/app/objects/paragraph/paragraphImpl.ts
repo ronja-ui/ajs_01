@@ -63,6 +63,8 @@ import {DplLogImpl} from './dplLog/dplLogImpl';
 import {DplLog} from './dplLog/dplLog';
 import {ExecutionImpl} from './execution/executionImpl';
 import {Execution} from './execution/execution';
+import {TitleImpl} from './title/titleImpl';
+import {Title} from './title/title';
 
 export class ParagraphImpl implements Paragraph {
   private readonly _requestable: Requestable;
@@ -70,6 +72,7 @@ export class ParagraphImpl implements Paragraph {
   private readonly _dplLog:DplLog;
   private readonly _output: Output;
   private readonly _execution: Execution;
+  private readonly _title:Title;
   private readonly _paragraphState: WebSocketPayload;
   private readonly _renderNode: Signal<RenderNode>;
   private readonly _paragraphIdFilter: WebSocketResponsePropertyEqualsFilter;
@@ -79,7 +82,8 @@ export class ParagraphImpl implements Paragraph {
               editor:Editor = new EditorImpl(this, paragraphState),
               output:Output = new OutputImpl(this, paragraphState),
               dplLog:DplLog = new DplLogImpl(),
-              execution: Execution = new ExecutionImpl(this, paragraphState)
+              execution: Execution = new ExecutionImpl(this, paragraphState),
+              title:Title = new TitleImpl(this.titleValue(paragraphState), this)
   ) {
     this._requestable = requestable;
     this._paragraphState = paragraphState;
@@ -87,9 +91,11 @@ export class ParagraphImpl implements Paragraph {
     this._dplLog = dplLog;
     this._output = output;
     this._execution = execution;
+    this._title = title;
     const actionBar = new ActionBar(this, editor, output, execution);
     this._renderNode = signal(new RenderNodeImpl(RegisteredComponents.PARAGRAPH_VIEW, computed(() => ({
       id:this.id(),
+      title:this._title.print()(),
       editor:this._editor.print()(),
       actionBar: actionBar.print()(),
       dplLog:dplLog.print()(),
@@ -140,6 +146,7 @@ export class ParagraphImpl implements Paragraph {
       this._editor.response(response);
       this._dplLog.response(response);
       this._execution.response(response);
+      this._title.response(response);
     }
   }
 
@@ -150,5 +157,9 @@ export class ParagraphImpl implements Paragraph {
         paragraphId:this.id(),
       }
     });
+  }
+
+  private titleValue(paragraphState:WebSocketPayload):string {
+    return paragraphState.propertyExists('title') ? paragraphState.stringProperty('title') : '';
   }
 }
