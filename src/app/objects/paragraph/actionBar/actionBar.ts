@@ -65,8 +65,7 @@ export class ActionBar implements Printable{
       paragraph:paragraph,
       editor: editor,
       output: output,
-      executor: execution.executor()(),
-      executionStatus: execution.executionStatus()(),
+      execution: execution,
     }))));
   }
 

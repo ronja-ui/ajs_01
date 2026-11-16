@@ -49,6 +49,7 @@ import {Output} from '../../../../objects/output/output';
 import {RenderNode} from '../../../../objects/rendering/renderNode/renderNode';
 import {RenderNodeRootView} from '../../renderNodeRoot/renderNodeRootView';
 import {Paragraph} from '../../../../objects/paragraph/paragraph';
+import {Execution} from '../../../../objects/paragraph/execution/execution';
 
 @Component({
   selector: 'action-bar',
@@ -58,7 +59,8 @@ import {Paragraph} from '../../../../objects/paragraph/paragraph';
   template: `
     <hr>
     <div class="d-flex align-items-center">
-      <render-node-host [renderNode]="executor()"></render-node-host>
+      <render-node-host [renderNode]="execution().executor()()"></render-node-host>
+      <fieldset [disabled]="execution().executionIsOngoing()()">
         <button class="btn btn-link btn-sm"
                 (click)="editor().clear()">
           <i class="fas fa-eraser"
@@ -83,8 +85,9 @@ import {Paragraph} from '../../../../objects/paragraph/paragraph';
              title="Clear output">
           </i>
         </button>
+      </fieldset>
       <div class="ms-auto d-flex align-items-center">
-        <render-node-host [renderNode]="executionStatus()"></render-node-host>
+        <render-node-host [renderNode]="execution().executionStatus()()"></render-node-host>
       </div>
     </div>
     <hr>
@@ -94,8 +97,7 @@ export class ActionBarView {
   paragraph = input.required<Paragraph>();
   editor = input.required<Editor>();
   output = input.required<Output>();
-  executionStatus = input.required<RenderNode>();
-  executor = input.required<RenderNode>();
+  execution = input.required<Execution>();
 
   copyParagraphLink():void{
 
