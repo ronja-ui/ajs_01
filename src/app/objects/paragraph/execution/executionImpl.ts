@@ -49,27 +49,35 @@ import {RenderNode} from '../../rendering/renderNode/renderNode';
 import {RegisteredComponents} from '../../../ui/angular2+/componentRegistry/registeredComponents';
 import {RenderNodeImpl} from '../../rendering/renderNode/renderNodeImpl';
 import {Requestable} from '../../channel/requestable';
+import {WebSocketPayload} from '../../webSocket/webSocketPayload/webSocketPayload';
 
 export class ExecutionImpl implements Execution {
   private readonly _requestable: Requestable;
-  private readonly _startExecution:Signal<RenderNode>;
-  private readonly _cancelExecution:Signal<RenderNode>;
-  private readonly _executorView:WritableSignal<RenderNode>;
+  private readonly _startExecution:RenderNode;
+  private readonly _cancelExecution:RenderNode;
+  private readonly _executorView:Signal<RenderNode>;
   private readonly _executionStatusView:Signal<RenderNode>;
+  private readonly _executionIsOngoing:Signal<boolean>;
+  private readonly _timeInfoText:WritableSignal<string>;
+  private readonly _executionStatus:WritableSignal<string>;
 
-  constructor(requestable: Requestable) {
+  constructor(requestable: Requestable, paragraphState:WebSocketPayload) {
     this._requestable = requestable;
-    this._startExecution = signal(new RenderNodeImpl(RegisteredComponents.START_EXECUTION_VIEW,
+    this._startExecution = new RenderNodeImpl(RegisteredComponents.START_EXECUTION_VIEW,
       computed(() => ({startExecutionCallback:() => this.startExecution()}
-      ))));
-    this._cancelExecution = signal(new RenderNodeImpl(RegisteredComponents.CANCEL_EXECUTION_VIEW,
+      )));
+    this._cancelExecution = new RenderNodeImpl(RegisteredComponents.CANCEL_EXECUTION_VIEW,
       computed(() => ({cancelExecutionCallback:() => this.cancelExecution()}
-      ))));
-    this._executorView = signal(this._startExecution());
+      )));
+    const status = paragraphState.stringProperty('status');
+    this._executionStatus = signal(status);
+    this._executionIsOngoing = computed(() => this.executionIsOnGoing(this._executionStatus()));
+    this._executorView = computed(() => this._executionIsOngoing() ? this._cancelExecution : this._startExecution);
+    this._timeInfoText = signal('');
     this._executionStatusView = signal(new RenderNodeImpl(RegisteredComponents.EXECUTION_STATUS_VIEW, computed(() => ({
-      executionIsOngoing:false,
-      timeInfoText:'',
-      executionStatus: ''
+      executionIsOngoing:this._executionIsOngoing(),
+      timeInfoText:this._timeInfoText(),
+      executionStatus: this._executionStatus(),
     }))));
   }
 
@@ -82,9 +90,8 @@ export class ExecutionImpl implements Execution {
   }
 
   executionIsOngoing(): Signal<boolean> {
-      throw new Error('Method not implemented.');
+    return this._executionIsOngoing;
   }
-
 
   response(json: object): void {
   }
@@ -105,5 +112,16 @@ export class ExecutionImpl implements Execution {
       op:'CANCEL_EXECUTION',
       data:{}
     });
+  }
+
+  private calculateElapsedTime():string{
+
+    return '';
+  }
+
+  private calculateExecutionTime():string{
+
+    // let desc = `Took ${durationFormat}. Last updated by ${user} at ${endFormat}.`;
+    return '';
   }
 }
