@@ -53,6 +53,8 @@ import {WebSocketPayload} from '../../webSocket/webSocketPayload/webSocketPayloa
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import duration from 'dayjs/plugin/duration';
+import {WebSocketResponseImpl} from '../../webSocket/response/webSocketResponseImpl';
+import {WebSocketPayloadImpl} from '../../webSocket/webSocketPayload/webSocketPayloadImpl';
 dayjs.extend(relativeTime);
 dayjs.extend(duration);
 
@@ -98,7 +100,22 @@ export class ExecutionImpl implements Execution {
     return this._executionIsOngoing;
   }
 
-  response(json: object): void {}
+  response(json: object): void {
+    const webSocketResponse = new WebSocketResponseImpl(new WebSocketPayloadImpl(json));
+    if(webSocketResponse.operation() === 'EXECUTION_STATUS'){
+      const status = webSocketResponse.dataAsWebSocketPayload().stringProperty('status');
+      this._executionStatus.set(status);
+      const startDate = webSocketResponse.dataAsWebSocketPayload().stringProperty('startDate');
+      if(this._executionIsOngoing()){
+        this._timeInfoText.set(this.calculateElapsedTime(startDate));
+      }
+      else{
+        const endDate = webSocketResponse.dataAsWebSocketPayload().stringProperty('endDate');
+        const user = webSocketResponse.dataAsWebSocketPayload().stringProperty('user');
+        this._timeInfoText.set(this.calculateExecutionTime(startDate, endDate, user));
+      }
+    }
+  }
 
   private executionIsOnGoing(status:string): boolean {
     return status === 'RUNNING' || status === 'PENDING';
