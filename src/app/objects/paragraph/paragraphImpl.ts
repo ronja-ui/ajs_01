@@ -89,6 +89,7 @@ export class ParagraphImpl implements Paragraph {
     this._execution = execution;
     const actionBar = new ActionBar(this, editor, output, execution);
     this._renderNode = signal(new RenderNodeImpl(RegisteredComponents.PARAGRAPH_VIEW, computed(() => ({
+      id:this.id(),
       editor:this._editor.print()(),
       actionBar: actionBar.print()(),
       dplLog:dplLog.print()(),

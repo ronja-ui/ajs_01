@@ -46,7 +46,6 @@
 import {Component, input} from '@angular/core';
 import {Editor} from '../../../../objects/paragraph/editor/editor';
 import {Output} from '../../../../objects/output/output';
-import {RenderNode} from '../../../../objects/rendering/renderNode/renderNode';
 import {RenderNodeRootView} from '../../renderNodeRoot/renderNodeRootView';
 import {Paragraph} from '../../../../objects/paragraph/paragraph';
 import {Execution} from '../../../../objects/paragraph/execution/execution';
@@ -99,7 +98,9 @@ export class ActionBarView {
   output = input.required<Output>();
   execution = input.required<Execution>();
 
-  copyParagraphLink():void{
-
+  async copyParagraphLink():Promise<void>{
+    const location = new URL(window.location.href);
+    const paragraphLink = `${location.toString()}#${this.paragraph().id()}`;
+    await navigator.clipboard.writeText(paragraphLink);
   }
 }

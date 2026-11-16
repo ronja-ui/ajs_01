@@ -175,5 +175,17 @@ angular.module('zeppelinWebApp', requiredModules)
     }
     angular.element('#pre-loader').fadeOut();
   }])
+  .config(['$anchorScrollProvider', function($anchorScrollProvider) {
+    $anchorScrollProvider.disableAutoScrolling();
+  }])
+  .run(['$rootScope', '$location', '$anchorScroll', '$timeout',
+    function($rootScope, $location, $anchorScroll, $timeout) {
+      $rootScope.$on('$viewContentLoaded', function() {
+        $timeout(function() {
+          $anchorScroll(); //Delay the initial load in order to let Angular2+ initialize
+        }, 500);
+      });
+    }
+  ])
   .constant('TRASH_FOLDER_ID', '~Trash');
 
