@@ -50,11 +50,16 @@ import {RegisteredComponents} from '../../../ui/angular2+/componentRegistry/regi
 import {RenderNodeImpl} from '../../rendering/renderNode/renderNodeImpl';
 import {Requestable} from '../../channel/requestable';
 import {WebSocketPayload} from '../../webSocket/webSocketPayload/webSocketPayload';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import duration from 'dayjs/plugin/duration';
+dayjs.extend(relativeTime);
+dayjs.extend(duration);
 
 export class ExecutionImpl implements Execution {
   private readonly _requestable: Requestable;
-  private readonly _startExecution:RenderNode;
-  private readonly _cancelExecution:RenderNode;
+  private readonly _startExecutionView:RenderNode;
+  private readonly _cancelExecutionView:RenderNode;
   private readonly _executorView:Signal<RenderNode>;
   private readonly _executionStatusView:Signal<RenderNode>;
   private readonly _executionIsOngoing:Signal<boolean>;
@@ -63,17 +68,17 @@ export class ExecutionImpl implements Execution {
 
   constructor(requestable: Requestable, paragraphState:WebSocketPayload) {
     this._requestable = requestable;
-    this._startExecution = new RenderNodeImpl(RegisteredComponents.START_EXECUTION_VIEW,
+    this._startExecutionView = new RenderNodeImpl(RegisteredComponents.START_EXECUTION_VIEW,
       computed(() => ({startExecutionCallback:() => this.startExecution()}
       )));
-    this._cancelExecution = new RenderNodeImpl(RegisteredComponents.CANCEL_EXECUTION_VIEW,
+    this._cancelExecutionView = new RenderNodeImpl(RegisteredComponents.CANCEL_EXECUTION_VIEW,
       computed(() => ({cancelExecutionCallback:() => this.cancelExecution()}
       )));
     const status = paragraphState.stringProperty('status');
     this._executionStatus = signal(status);
     this._executionIsOngoing = computed(() => this.executionIsOnGoing(this._executionStatus()));
-    this._executorView = computed(() => this._executionIsOngoing() ? this._cancelExecution : this._startExecution);
-    this._timeInfoText = signal('');
+    this._executorView = computed(() => this._executionIsOngoing() ? this._cancelExecutionView : this._startExecutionView);
+    this._timeInfoText = signal(this.initializedTimeInfoText(paragraphState, status));
     this._executionStatusView = signal(new RenderNodeImpl(RegisteredComponents.EXECUTION_STATUS_VIEW, computed(() => ({
       executionIsOngoing:this._executionIsOngoing(),
       timeInfoText:this._timeInfoText(),
@@ -93,8 +98,7 @@ export class ExecutionImpl implements Execution {
     return this._executionIsOngoing;
   }
 
-  response(json: object): void {
-  }
+  response(json: object): void {}
 
   private executionIsOnGoing(status:string): boolean {
     return status === 'RUNNING' || status === 'PENDING';
@@ -114,14 +118,28 @@ export class ExecutionImpl implements Execution {
     });
   }
 
-  private calculateElapsedTime():string{
-
-    return '';
+  private calculateElapsedTime(startDate:string):string{
+    return `Started ${dayjs(startDate).fromNow()}`;
   }
 
-  private calculateExecutionTime():string{
+  private calculateExecutionTime(startDate:string, endDate:string, user:string):string{
+    const diffMs = dayjs(endDate).diff(dayjs(startDate));
+    const duration = dayjs.duration(diffMs).humanize();
+    const formattedEndDate = dayjs(endDate).format('MMMM DD YYYY, h:mm:ss A');
+    return `Took ${duration}. Last updated by ${user} at ${formattedEndDate}`;
+  }
 
-    // let desc = `Took ${durationFormat}. Last updated by ${user} at ${endFormat}.`;
-    return '';
+  private initializedTimeInfoText(paragraphState:WebSocketPayload, status:string):string{
+    let timeInfoText:string;
+    const startDate = paragraphState.stringProperty('dateStarted');
+    if(status === 'RUNNING' || status === 'PENDING') {
+      timeInfoText = this.calculateElapsedTime(startDate);
+    }
+    else{
+      const endDate = paragraphState.stringProperty('dateFinished');
+      const user = paragraphState.stringProperty('user');
+      timeInfoText = this.calculateExecutionTime(startDate, endDate, user);
+    }
+    return timeInfoText;
   }
 }
