@@ -53,6 +53,9 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   template: `
+    <button class="btn btn-sm btn-secondary editor-options" data-bs-toggle="dropdown">
+      <i class="fa-solid fa-gear"></i>
+    </button>
     <ul class="dropdown-menu">
       <li class="dropdown-item d-flex align-items-center justify-content-between">
         <div class="form-check form-switch">
@@ -78,9 +81,6 @@ import {FormsModule} from '@angular/forms';
         </select>
       </li>
     </ul>
-    <button class="btn btn-sm btn-secondary" data-bs-toggle="dropdown">
-      <i class="fa-solid fa-gear"></i>
-    </button>
   `
 })
 export class EditorStyleView {
