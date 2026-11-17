@@ -43,21 +43,65 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-import {Component, input} from '@angular/core';
+import {Component, ElementRef, input, OnDestroy, ViewChild} from '@angular/core';
 import {Paragraph} from '../../../../objects/paragraph/paragraph';
+import {ReactiveFormsModule} from '@angular/forms';
+import {Modal} from 'bootstrap';
 
 @Component({
   selector: 'remove-paragraph',
+  imports: [
+    ReactiveFormsModule
+  ],
   template: `
     <button class="btn btn-link btn-sm"
-            (click)="paragraph().remove()">
+            (click)="openRemoveParagraphDialog()">
       <i class="fa-solid fa-trash-can"
          title="Clear output">
       </i>
     </button>
+    <div #confirmRemoveParagraph class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Remove paragraph</h5>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex align-items-center">
+                Remove paragraph?
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeRemoveParagraphDialog()">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="removeAndClose()">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
   `
 })
-export class RemoveParagraphView {
+export class RemoveParagraphView implements OnDestroy {
   paragraph = input.required<Paragraph>();
 
+  @ViewChild('confirmRemoveParagraph') confirmRemoveParagraph!: ElementRef<HTMLDivElement>;
+
+  openRemoveParagraphDialog():void{
+    const modal = Modal.getOrCreateInstance(this.confirmRemoveParagraph.nativeElement, {
+      backdrop: 'static',
+    });
+    modal.show();
+  }
+
+  closeRemoveParagraphDialog():void{
+    Modal.getInstance(this.confirmRemoveParagraph.nativeElement)?.hide();
+  }
+
+  removeAndClose():void{
+    this.paragraph().remove();
+    this.closeRemoveParagraphDialog();
+  }
+
+  ngOnDestroy() {
+    Modal.getInstance(this.confirmRemoveParagraph.nativeElement)?.dispose();
+  }
 }
