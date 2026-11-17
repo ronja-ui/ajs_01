@@ -54,7 +54,10 @@ import {RenderNodeRootView} from '../renderNodeRoot/renderNodeRootView';
   ],
   template: `
     <div class="paragraph-box" [id]="id()">
-      <render-node-host [renderNode]="title()"></render-node-host>
+      <div class="ms-auto d-flex align-items-center py-2">
+        <render-node-host [renderNode]="title()"></render-node-host>
+        <p class="fw-light ms-auto">ID: {{id()}}</p>
+      </div>
       <render-node-host [renderNode]="editor()"></render-node-host>
       <render-node-host [renderNode]="actionBar()"></render-node-host>
       <render-node-host [renderNode]="dplLog()"></render-node-host>
