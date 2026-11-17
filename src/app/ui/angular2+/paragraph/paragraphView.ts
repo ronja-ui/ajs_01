@@ -46,17 +46,21 @@
 import {Component, input} from '@angular/core';
 import {RenderNode} from '../../../objects/rendering/renderNode/renderNode';
 import {RenderNodeRootView} from '../renderNodeRoot/renderNodeRootView';
+import {Paragraph} from '../../../objects/paragraph/paragraph';
+import {RemoveParagraphView} from './removeParagraph/removeParagraphView';
 
 @Component({
   selector: 'paragraph',
   imports: [
-    RenderNodeRootView
+    RenderNodeRootView,
+    RemoveParagraphView
   ],
   template: `
-    <div class="paragraph-box" [id]="id()">
+    <div class="paragraph-box" [id]="paragraph().id()">
       <div class="ms-auto d-flex align-items-center py-2">
         <render-node-host [renderNode]="title()"></render-node-host>
-        <p class="fw-light ms-auto">ID: {{id()}}</p>
+        <remove-paragraph [paragraph]="paragraph()"></remove-paragraph>
+        <p class="fw-light ms-auto">ID: {{paragraph().id()}}</p>
       </div>
       <render-node-host [renderNode]="editor()"></render-node-host>
       <render-node-host [renderNode]="actionBar()"></render-node-host>
@@ -66,7 +70,7 @@ import {RenderNodeRootView} from '../renderNodeRoot/renderNodeRootView';
   `
 })
 export class ParagraphView {
-  id = input.required<string>();
+  paragraph = input.required<Paragraph>();
   title = input.required<RenderNode>();
   editor = input.required<RenderNode>();
   actionBar = input.required<RenderNode>();

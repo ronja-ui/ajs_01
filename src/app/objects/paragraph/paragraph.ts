@@ -50,4 +50,5 @@ export interface Paragraph extends Channel, Printable {
   id(): string;
   run():void;
   copy():void;
+  remove():void;
 }

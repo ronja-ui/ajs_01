@@ -111,12 +111,4 @@ export class EditorImpl implements Editor {
     this._autoCompleteRule.response(json);
     this._syntaxLanguageSelectRule.response(json);
   }
-
-  clear():void{
-    this._editor.setValue('', 0);
-    this._requestable.request({
-      op:'EDITOR_CLEARED',
-      data:{}
-    });
-  }
 }

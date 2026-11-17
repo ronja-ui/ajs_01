@@ -57,13 +57,11 @@ export class ActionBar implements Printable{
   private readonly _printSignal:Signal<RenderNode>;
 
   constructor(paragraph:Paragraph,
-              editor:Editor,
               output:Output,
               execution:Execution,
               ) {
     this._printSignal = signal(new RenderNodeImpl(RegisteredComponents.ACTION_BAR_VIEW, computed(() => ({
       paragraph:paragraph,
-      editor: editor,
       output: output,
       execution: execution,
     }))));

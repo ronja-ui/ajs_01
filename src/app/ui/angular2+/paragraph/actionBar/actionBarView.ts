@@ -44,7 +44,6 @@
  * a licensee so wish it.
  */
 import {Component, ElementRef, input, OnDestroy, ViewChild} from '@angular/core';
-import {Editor} from '../../../../objects/paragraph/editor/editor';
 import {Output} from '../../../../objects/output/output';
 import {RenderNodeRootView} from '../../renderNodeRoot/renderNodeRootView';
 import {Paragraph} from '../../../../objects/paragraph/paragraph';
@@ -62,7 +61,7 @@ import {Toast} from 'bootstrap';
       <render-node-host [renderNode]="execution().executor()()"></render-node-host>
       <fieldset [disabled]="execution().executionIsOngoing()()">
         <button class="btn btn-link btn-sm"
-                (click)="editor().clear()">
+                (click)="output().clear()">
           <i class="fas fa-eraser"
              title="Clear editor">
           </i>
@@ -77,12 +76,6 @@ import {Toast} from 'bootstrap';
                 (click)="copyParagraphLink()">
           <i class="fa-solid fa-link"
              title="Link to paragraph">
-          </i>
-        </button>
-        <button class="btn btn-link btn-sm"
-                (click)="output().clear()">
-          <i class="fa-solid fa-trash-can"
-             title="Clear output">
           </i>
         </button>
       </fieldset>
@@ -106,7 +99,6 @@ import {Toast} from 'bootstrap';
 })
 export class ActionBarView implements OnDestroy {
   paragraph = input.required<Paragraph>();
-  editor = input.required<Editor>();
   output = input.required<Output>();
   execution = input.required<Execution>();
 

@@ -92,9 +92,9 @@ export class ParagraphImpl implements Paragraph {
     this._output = output;
     this._execution = execution;
     this._title = title;
-    const actionBar = new ActionBar(this, editor, output, execution);
+    const actionBar = new ActionBar(this, output, execution);
     this._renderNode = signal(new RenderNodeImpl(RegisteredComponents.PARAGRAPH_VIEW, computed(() => ({
-      id:this.id(),
+      paragraph:this,
       title:this._title.print()(),
       editor:this._editor.print()(),
       actionBar: actionBar.print()(),
@@ -153,6 +153,15 @@ export class ParagraphImpl implements Paragraph {
   copy():void{
     this._requestable.request({
       op:'COPY_PARAGRAPH',
+      data:{
+        paragraphId:this.id(),
+      }
+    });
+  }
+
+  remove():void{
+    this._requestable.request({
+      op:'PARAGRAPH_REMOVE',
       data:{
         paragraphId:this.id(),
       }
