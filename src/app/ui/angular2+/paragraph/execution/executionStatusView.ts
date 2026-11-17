@@ -50,13 +50,11 @@ import {Component, input} from '@angular/core';
   template: `
     <div class="d-flex align-items-center">
       @if (executionIsOngoing()) {
-        <div class="spinner-grow spinner-grow-sm text-primary mb-3 me-3" role="status">
+        <div class="spinner-grow spinner-grow-sm text-primary me-3" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       }
-      <div class="d-flex align-items-center">
-        <p class="text-uppercase">{{ executionStatus() }} - {{ timeInfoText() }}</p>
-      </div>
+      <span class="text-uppercase">{{ executionStatus() }} - {{ timeInfoText() }}</span>
     </div>
   `
 })
