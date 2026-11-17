@@ -58,10 +58,11 @@ export class TitleImpl implements Title{
   private readonly _printSignal:Signal<RenderNode>;
 
   constructor(title:string, requestable:Requestable) {
-    this._titleText = signal(title);
+    this._titleText = signal(title, {equal: () => false});
     this._requestable = requestable;
     this._printSignal = signal(new RenderNodeImpl(RegisteredComponents.TITLE_VIEW, computed(() => ({
       titleText:this._titleText(),
+      updateTitleCallback:(title:string) => this.update(title)
     }))));
   }
 

@@ -43,17 +43,73 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-import {Component, input} from '@angular/core';
+import {Component, ElementRef, input, model, ModelSignal, OnDestroy, ViewChild} from '@angular/core';
+import {Modal} from 'bootstrap';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'editable-title',
+  imports: [
+    FormsModule
+  ],
   template: `
-    <p>
-      {{titleText() !== '' ? titleText() : 'Untitled'}}
-    </p>
+    <div class="d-flex align-items-center">
+      <h3 class="text-transform-none mt-2">
+        {{ titleText() !== '' ? titleText() : 'Untitled' }}
+      </h3>
+      <button class="btn btn-link btn-sm" (click)="openEditTitleView()">
+        <i class="fa-solid fa-pen-to-square"
+           title="Edit title">
+        </i>
+      </button>
+    </div>
+    <div #editTitleView class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Rename paragraph</h5>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex align-items-center">
+              <label>Paragraph name</label>
+              <input class="ms-auto" [(ngModel)]="titleModel">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeEditTitleView()">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="saveTitle()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
   `
 })
-export class TitleView {
+export class TitleView implements OnDestroy {
   titleText = input.required<string>();
+  updateTitleCallback = input.required<(title:string) => void>();
 
+  @ViewChild('editTitleView') editTitleView!: ElementRef<HTMLDivElement>;
+  titleModel:ModelSignal<string> = model('');
+
+  openEditTitleView(): void {
+    const modal = Modal.getOrCreateInstance(this.editTitleView.nativeElement, {
+      backdrop: 'static',
+    });
+    this.titleModel.set(this.titleText());
+    modal.show();
+  }
+
+  closeEditTitleView(): void {
+    Modal.getInstance(this.editTitleView.nativeElement)?.hide();
+  }
+
+  saveTitle():void{
+    console.debug(this.titleModel());
+    this.updateTitleCallback()(this.titleModel());
+    Modal.getInstance(this.editTitleView.nativeElement)?.hide();
+  }
+
+  ngOnDestroy():void {
+    Modal.getInstance(this.editTitleView?.nativeElement)?.dispose();
+  }
 }
