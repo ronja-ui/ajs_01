@@ -54,10 +54,10 @@ import {FormsModule} from '@angular/forms';
   ],
   template: `
     <div class="d-flex align-items-center">
-      <h3 class="text-transform-none mt-2">
+      <h3 class="paragraph-title">
         {{ titleText() !== '' ? titleText() : 'Untitled' }}
       </h3>
-      <button class="btn btn-link btn-sm" (click)="openEditTitleView()">
+      <button class="btn btn-link-secondary btn-sm ms-2" (click)="openEditTitleView()">
         <i class="fa-solid fa-pen-to-square"
            title="Edit title">
         </i>

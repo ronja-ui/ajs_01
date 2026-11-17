@@ -53,7 +53,7 @@ import {Modal} from 'bootstrap';
     ReactiveFormsModule
   ],
   template: `
-    <button class="btn btn-link btn-sm"
+    <button class="btn btn-link-secondary btn-sm"
             (click)="openRemoveParagraphDialog()"
             [disabled]="disable()">
       <i class="fa-solid fa-trash-can"

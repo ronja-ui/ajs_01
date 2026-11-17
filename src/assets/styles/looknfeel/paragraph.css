@@ -128,18 +128,21 @@ paragraph {
   }
 }
 
+.paragraph-title-container {
+  padding: 12px 24px 0;
+  margin-bottom: 16px;
+}
+
 .paragraph-title {
-  font: 700 16px 'Roboto', sans-serif;
-  color: var(--primary-700);
-  text-transform: uppercase;
-  word-spacing: 3px;
-  input {
-    width: 50%;
-  }
+  font: 700 20px 'Nunito Sans', sans-serif;
+  line-height: 30px;
+  margin-bottom: 0 !important;
+  color: var(--grey-800);
+  text-transform: none;
 }
 
 .dark-mode .paragraph-title {
-  color: var(--tertiary-200);
+  color: var(--dm-grey-100);
 }
 
 .jobs-icon {
