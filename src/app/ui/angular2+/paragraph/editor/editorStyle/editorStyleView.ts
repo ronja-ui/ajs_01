@@ -78,7 +78,7 @@ import {FormsModule} from '@angular/forms';
         </select>
       </li>
     </ul>
-    <button class="btn btn-sm" data-bs-toggle="dropdown">
+    <button class="btn btn-sm btn-secondary" data-bs-toggle="dropdown">
       <i class="fa-solid fa-gear"></i>
     </button>
   `
