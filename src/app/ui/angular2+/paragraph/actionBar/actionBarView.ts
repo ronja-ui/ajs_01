@@ -113,11 +113,17 @@ export class ActionBarView implements OnDestroy {
   @ViewChild('copyParagraphLinkNotification') copyParagraphLinkNotification!: ElementRef<HTMLDivElement>;
 
   async copyParagraphLink():Promise<void>{
-    const location = new URL(window.location.href);
-    const paragraphLink = `${location.toString()}#${this.paragraph().id()}`;
+    const baseUrl = `${window.location.origin}${window.location.pathname}`;
+    const paragraphLink = `${baseUrl}#/notebook/${this.notebookId()}/#${this.paragraph().id()}`;
     await navigator.clipboard.writeText(paragraphLink);
     const notification = Toast.getOrCreateInstance(this.copyParagraphLinkNotification.nativeElement);
     notification.show();
+  }
+
+  private notebookId():string {
+    const regex = /\/notebook\/([^/?#]+)/;
+    const url = window.location.href;
+    return url.match(regex)?.[1];
   }
 
   ngOnDestroy():void {
