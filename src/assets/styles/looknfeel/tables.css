@@ -98,8 +98,7 @@ output-switcher {
 }
 
 .dt-container > div:nth-child(3) {
-  padding: 0 24px;
-  margin-bottom: 16px;
+  padding: 0 24px 16px;
 }
 
 .dt-container table td:first-child,

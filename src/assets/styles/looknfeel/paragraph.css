@@ -51,10 +51,8 @@
 .paragraph-box {
   margin-bottom: 20px;
   background: var(--grey-000);
-  border: 1px solid var(--grey-300);
-  border-radius: 20px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  border: none;
+  box-shadow: 2px 4px 10px var(--grey-400), 0 1px 5px var(--grey-500);
   @media only screen and (max-width: 992px) {
     padding: 0 20px 25px !important;
   }
@@ -62,7 +60,7 @@
 
 .dark-mode .paragraph-box {
   background: var(--dm-grey-700);
-  border-color: var(--dm-grey-700);
+  box-shadow: 2px 4px 10px var(--dm-grey-900), 0 1px 5px var(--dm-grey-900);
 }
 
 paragraph {
