@@ -79,13 +79,6 @@ export class ParagraphCollectionImpl implements ParagraphCollection {
     };
   }
 
-  private insertParagraphRequest(index:number) {
-    this._requestable.request({
-      op: 'INSERT_PARAGRAPH',
-      data: {index: index}
-    });
-  }
-
   print(): Signal<RenderNode> {
     return this._renderNode;
   }
@@ -154,6 +147,13 @@ export class ParagraphCollectionImpl implements ParagraphCollection {
     this._paragraphs.update(paragraphs => {
       paragraphs.delete(paragraphId);
       return paragraphs;
+    });
+  }
+
+  private insertParagraphRequest(index:number) {
+    this._requestable.request({
+      op: 'INSERT_PARAGRAPH',
+      data: {index: index}
     });
   }
 }
