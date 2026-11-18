@@ -112,8 +112,7 @@ paragraph {
 }
 
 .paragraph-title-container {
-  padding: 12px 24px 0;
-  margin-bottom: 16px;
+  padding: 12px 24px 16px;
 }
 
 .paragraph-title {
@@ -126,6 +125,14 @@ paragraph {
 
 .dark-mode .paragraph-title {
   color: var(--dm-grey-100);
+}
+
+.paragraph-id {
+  color: var(--grey-700);
+}
+
+.dark-mode .paragraph-id {
+  color: var(--dm-grey-200);
 }
 
 .jobs-icon {

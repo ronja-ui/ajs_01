@@ -61,7 +61,7 @@ import {ActionBarView} from './actionBar/actionBarView';
       <div class="paragraph-title-container d-flex align-items-center">
         <render-node-host [renderNode]="title()"></render-node-host>
         <render-node-host [renderNode]="actions().actions().removeParagraph"></render-node-host>
-        <p class="ms-auto">ID: {{paragraph().id()}}</p>
+        <p class="paragraph-id ms-auto">ID: {{paragraph().id()}}</p>
       </div>
       <render-node-host [renderNode]="editor()"></render-node-host>
       <action-bar [actions]="actions()"></action-bar>
