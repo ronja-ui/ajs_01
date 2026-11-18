@@ -54,7 +54,7 @@ import {Component, input} from '@angular/core';
           <span class="visually-hidden">Loading...</span>
         </div>
       }
-      <span class="text-uppercase">{{ executionStatus() }} - {{ timeInfoText() }}</span>
+      <span>{{ executionStatus() }} — {{ timeInfoText() }}</span>
     </div>
   `
 })
