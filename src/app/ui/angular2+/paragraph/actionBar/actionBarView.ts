@@ -43,12 +43,9 @@
  * Teragrep, the applicable Commercial License may apply to this file if you as
  * a licensee so wish it.
  */
-import {Component, ElementRef, input, OnDestroy, ViewChild} from '@angular/core';
-import {Output} from '../../../../objects/output/output';
+import {Component, input} from '@angular/core';
 import {RenderNodeRootView} from '../../renderNodeRoot/renderNodeRootView';
-import {Paragraph} from '../../../../objects/paragraph/paragraph';
-import {Execution} from '../../../../objects/paragraph/execution/execution';
-import {Toast} from 'bootstrap';
+import {Actions} from '../../../../objects/paragraph/actions/actions';
 
 @Component({
   selector: 'action-bar',
@@ -58,67 +55,17 @@ import {Toast} from 'bootstrap';
   template: `
     <hr>
     <div class="d-flex align-items-center">
-      <render-node-host [renderNode]="execution().executor()()"></render-node-host>
-      <fieldset [disabled]="execution().executionIsOngoing()()">
-        <button class="btn btn-link btn-sm"
-                (click)="output().clear()">
-          <i class="fas fa-eraser"
-             title="Clear editor">
-          </i>
-        </button>
-        <button class="btn btn-link btn-sm"
-                (click)="paragraph().copy()">
-          <i class="fa-solid fa-copy"
-             title="Copy paragraph">
-          </i>
-        </button>
-        <button class="btn btn-link btn-sm"
-                (click)="copyParagraphLink()">
-          <i class="fa-solid fa-link"
-             title="Link to paragraph">
-          </i>
-        </button>
-      </fieldset>
+      <render-node-host [renderNode]="actions().actions().executor()"></render-node-host>
+      <render-node-host [renderNode]="actions().actions().clearOutput"></render-node-host>
+      <render-node-host [renderNode]="actions().actions().copyParagraph"></render-node-host>
+      <render-node-host [renderNode]="actions().actions().paragraphLink"></render-node-host>
       <div class="ms-auto d-flex align-items-center">
-        <render-node-host [renderNode]="execution().executionStatus()()"></render-node-host>
-      </div>
-    </div>
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-      <div #copyParagraphLinkNotification class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <strong class="me-auto">Notification</strong>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-          Paragraph link copied to clipboard.
-        </div>
+        <render-node-host [renderNode]="actions().actions().executionStatus"></render-node-host>
       </div>
     </div>
     <hr>
   `
 })
-export class ActionBarView implements OnDestroy {
-  paragraph = input.required<Paragraph>();
-  output = input.required<Output>();
-  execution = input.required<Execution>();
-
-  @ViewChild('copyParagraphLinkNotification') copyParagraphLinkNotification!: ElementRef<HTMLDivElement>;
-
-  async copyParagraphLink():Promise<void>{
-    const baseUrl = `${window.location.origin}${window.location.pathname}`;
-    const paragraphLink = `${baseUrl}#/notebook/${this.notebookId()}/#${this.paragraph().id()}`;
-    await navigator.clipboard.writeText(paragraphLink);
-    const notification = Toast.getOrCreateInstance(this.copyParagraphLinkNotification.nativeElement);
-    notification.show();
-  }
-
-  private notebookId():string {
-    const regex = /\/notebook\/([^/?#]+)/;
-    const url = window.location.href;
-    return url.match(regex)?.[1];
-  }
-
-  ngOnDestroy():void {
-    Toast.getInstance(this.copyParagraphLinkNotification?.nativeElement)?.dispose();
-  }
+export class ActionBarView {
+  actions = input.required<Actions>();
 }

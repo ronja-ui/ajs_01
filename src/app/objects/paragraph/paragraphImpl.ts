@@ -65,6 +65,7 @@ import {ExecutionImpl} from './execution/executionImpl';
 import {Execution} from './execution/execution';
 import {TitleImpl} from './title/titleImpl';
 import {Title} from './title/title';
+import {ActionsImpl} from './actions/actionsImpl';
 
 export class ParagraphImpl implements Paragraph {
   private readonly _requestable: Requestable;
@@ -92,12 +93,12 @@ export class ParagraphImpl implements Paragraph {
     this._output = output;
     this._execution = execution;
     this._title = title;
-    const actionBar = new ActionBar(this, output, execution);
+    const actions = new ActionsImpl(this._execution, this._output, this);
     this._renderNode = signal(new RenderNodeImpl(RegisteredComponents.PARAGRAPH_VIEW, computed(() => ({
       paragraph:this,
       title:this._title.print()(),
       editor:this._editor.print()(),
-      actionBar: actionBar.print()(),
+      actions: actions,
       dplLog:dplLog.print()(),
       output:this._output.print()(),
     }))));

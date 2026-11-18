@@ -48,7 +48,7 @@ import {Signal} from '@angular/core';
 import {RenderNode} from '../../rendering/renderNode/renderNode';
 
 export interface Execution extends Respondable {
-  executionStatus():Signal<RenderNode>;
+  executionStatus():RenderNode;
   executor():Signal<RenderNode>;
   executionIsOngoing():Signal<boolean>;
 }

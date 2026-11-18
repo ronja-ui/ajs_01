@@ -52,6 +52,7 @@ import {RenderNode} from '../../rendering/renderNode/renderNode';
 export interface Actions {
   actions():{
     executor:Signal<RenderNode>,
+    executionStatus:RenderNode,
     clearOutput:RenderNode,
     copyParagraph:RenderNode,
     paragraphLink:RenderNode,

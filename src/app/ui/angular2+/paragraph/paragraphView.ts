@@ -48,12 +48,15 @@ import {RenderNode} from '../../../objects/rendering/renderNode/renderNode';
 import {RenderNodeRootView} from '../renderNodeRoot/renderNodeRootView';
 import {Paragraph} from '../../../objects/paragraph/paragraph';
 import {RemoveParagraphView} from './removeParagraph/removeParagraphView';
+import {Actions} from '../../../objects/paragraph/actions/actions';
+import {ActionBarView} from './actionBar/actionBarView';
 
 @Component({
   selector: 'paragraph',
   imports: [
     RenderNodeRootView,
-    RemoveParagraphView
+    RemoveParagraphView,
+    ActionBarView
   ],
   template: `
     <div class="paragraph-box" [id]="paragraph().id()">
@@ -63,7 +66,7 @@ import {RemoveParagraphView} from './removeParagraph/removeParagraphView';
         <p class="fw-light ms-auto">ID: {{paragraph().id()}}</p>
       </div>
       <render-node-host [renderNode]="editor()"></render-node-host>
-      <render-node-host [renderNode]="actionBar()"></render-node-host>
+      <action-bar [actions]="actions()"></action-bar>
       <render-node-host [renderNode]="dplLog()"></render-node-host>
       <render-node-host [renderNode]="output()"></render-node-host>
     </div>
@@ -73,7 +76,7 @@ export class ParagraphView {
   paragraph = input.required<Paragraph>();
   title = input.required<RenderNode>();
   editor = input.required<RenderNode>();
-  actionBar = input.required<RenderNode>();
+  actions = input.required<Actions>();
   dplLog = input.required<RenderNode>();
   output = input.required<RenderNode>();
 }

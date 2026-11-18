@@ -54,6 +54,7 @@ import {RegisteredComponents} from '../../../ui/angular2+/componentRegistry/regi
 
 export class ActionsImpl implements Actions {
   private readonly _executor:Signal<RenderNode>;
+  private readonly _executionStatus:RenderNode;
   private readonly _clearOutput: RenderNode;
   private readonly _copyParagraph:RenderNode;
   private readonly _paragraphLink:RenderNode;
@@ -64,6 +65,7 @@ export class ActionsImpl implements Actions {
     paragraph:Paragraph,
   ) {
     this._executor = execution.executor();
+    this._executionStatus = execution.executionStatus();
     this._clearOutput = new RenderNodeImpl(RegisteredComponents.CLEAR_OUTPUT_VIEW, computed(() => ({
       clearOutputCallback:() => output.clear(),
       disable:execution.executionIsOngoing()()
@@ -79,12 +81,14 @@ export class ActionsImpl implements Actions {
 
   actions(): {
     executor:Signal<RenderNode>,
+    executionStatus:RenderNode,
     clearOutput:RenderNode,
     copyParagraph:RenderNode,
     paragraphLink:RenderNode,
   } {
     return {
       executor: this._executor,
+      executionStatus:this._executionStatus,
       clearOutput: this._clearOutput,
       copyParagraph: this._copyParagraph,
       paragraphLink: this._paragraphLink

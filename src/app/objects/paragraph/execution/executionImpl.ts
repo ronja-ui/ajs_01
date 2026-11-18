@@ -63,7 +63,7 @@ export class ExecutionImpl implements Execution {
   private readonly _startExecutionView:RenderNode;
   private readonly _cancelExecutionView:RenderNode;
   private readonly _executorView:Signal<RenderNode>;
-  private readonly _executionStatusView:Signal<RenderNode>;
+  private readonly _executionStatusView:RenderNode;
   private readonly _executionIsOngoing:Signal<boolean>;
   private readonly _timeInfoText:WritableSignal<string>;
   private readonly _executionStatus:WritableSignal<string>;
@@ -81,14 +81,14 @@ export class ExecutionImpl implements Execution {
     this._executionIsOngoing = computed(() => this.executionIsOnGoing(this._executionStatus()));
     this._executorView = computed(() => this._executionIsOngoing() ? this._cancelExecutionView : this._startExecutionView);
     this._timeInfoText = signal(this.initializedTimeInfoText(paragraphState, status));
-    this._executionStatusView = signal(new RenderNodeImpl(RegisteredComponents.EXECUTION_STATUS_VIEW, computed(() => ({
+    this._executionStatusView = new RenderNodeImpl(RegisteredComponents.EXECUTION_STATUS_VIEW, computed(() => ({
       executionIsOngoing:this._executionIsOngoing(),
       timeInfoText:this._timeInfoText(),
       executionStatus: this._executionStatus(),
-    }))));
+    })));
   }
 
-  executionStatus(): Signal<RenderNode> {
+  executionStatus(): RenderNode {
     return this._executionStatusView;
   }
 
