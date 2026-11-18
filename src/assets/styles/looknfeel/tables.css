@@ -227,3 +227,30 @@ table.dataTable tr.dtrg-group th {
 .dark-mode table.dataTable tbody tr {
   background: transparent;
 }*/
+
+/* margins for datatables */
+
+output-switcher {
+  padding: 0 24px;
+}
+
+.dt-container > div:first-child {
+  padding: 0 24px;
+}
+
+.dt-container > div:nth-child(3) {
+  padding: 0 24px;
+  margin-bottom: 16px;
+}
+
+.dt-container table td:first-child,
+.dt-container table th:first-child {
+  padding-left: 24px !important;
+  border-left: none;
+}
+
+.dt-container table td:last-child,
+.dt-container table th:last-child {
+  padding-right: 24px !important;
+  border-right: none;
+}
