@@ -53,19 +53,16 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   template: `
+    <button class="btn btn-sm btn-secondary editor-options" data-bs-toggle="dropdown">
+      <i class="fa-solid fa-gear"></i>
+    </button>
     <ul class="dropdown-menu">
-      <li class="px-2 py-2 d-flex align-items-center justify-content-between">
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch"
-                 [ngModel]="displayLineNumbers()"
-                 (ngModelChange)="updateLineNumberVisibility($event)"
-                 [checked]="displayLineNumbers()">
-          <label class="form-check-label">Toggle line numbers</label>
-        </div>
-      </li>
-      <li class="px-2 py-2 d-flex align-items-center justify-content-between">
-        <label>Font size</label>
-        <select class="form-select form-select-sm w-auto" aria-label="Select font size"
+      <li class="dropdown-item d-flex align-items-center">
+        <span class="drop-icon">
+          <i class="fas fa-text-height"></i>
+        </span>
+        <label class="form-label-col ms-1">Font size</label>
+        <select class="form-select form-select-sm w-auto ms-auto" aria-label="Select font size"
                 [ngModel]="currentFontSize()"
                 (ngModelChange)="updateFontSize($event)">
           @for (fontSizeOption of fontSizeOptions(); track $index) {
@@ -77,10 +74,19 @@ import {FormsModule} from '@angular/forms';
           }
         </select>
       </li>
+      <li class="divider">
+        <hr class="dropdown-divider">
+      </li>
+      <li class="dropdown-item d-flex align-items-center justify-content-between">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch"
+                 [ngModel]="displayLineNumbers()"
+                 (ngModelChange)="updateLineNumberVisibility($event)"
+                 [checked]="displayLineNumbers()">
+          <label class="form-check-label">Toggle line numbers</label>
+        </div>
+      </li>
     </ul>
-    <button class="btn btn-sm btn-secondary" data-bs-toggle="dropdown">
-      <i class="fa-solid fa-gear"></i>
-    </button>
   `
 })
 export class EditorStyleView {

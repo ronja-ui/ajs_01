@@ -53,8 +53,7 @@ import {Actions} from '../../../../objects/paragraph/actions/actions';
     RenderNodeRootView,
   ],
   template: `
-    <hr>
-    <div class="d-flex align-items-center">
+    <div class="control d-flex align-items-center">
       <render-node-host [renderNode]="actions().actions().executor()"></render-node-host>
       <render-node-host [renderNode]="actions().actions().clearOutput"></render-node-host>
       <render-node-host [renderNode]="actions().actions().copyParagraph"></render-node-host>
@@ -63,7 +62,6 @@ import {Actions} from '../../../../objects/paragraph/actions/actions';
         <render-node-host [renderNode]="actions().actions().executionStatus"></render-node-host>
       </div>
     </div>
-    <hr>
   `
 })
 export class ActionBarView {

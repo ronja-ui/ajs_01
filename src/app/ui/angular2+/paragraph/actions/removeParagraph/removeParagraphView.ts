@@ -53,7 +53,7 @@ import {Modal} from 'bootstrap';
     ReactiveFormsModule
   ],
   template: `
-    <button class="btn btn-link btn-sm"
+    <button class="btn btn-link-secondary btn-sm"
             (click)="openRemoveParagraphDialog()"
             [disabled]="disable()">
       <i class="fa-solid fa-trash-can"
@@ -64,12 +64,10 @@ import {Modal} from 'bootstrap';
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5>Remove paragraph</h5>
+            <h5 class="modal-title">Delete paragraph</h5>
           </div>
           <div class="modal-body">
-            <div class="d-flex align-items-center">
-                Remove paragraph?
-            </div>
+            Once you delete a paragraph, it's permanently gone.
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" (click)="closeRemoveParagraphDialog()">Cancel</button>

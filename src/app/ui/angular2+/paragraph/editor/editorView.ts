@@ -55,11 +55,9 @@ import {RenderNodeRootView} from '../../renderNodeRoot/renderNodeRootView';
     RenderNodeRootView
   ],
   template: `
-    <div class="my-2">
-        <div class="d-flex justify-content-end gap-2">
+    <div class="editor-container text-end">
         <render-node-host [renderNode]="editorStyle()"></render-node-host>
-        </div>
-        <div #editorAnchor class="paragraph-editor"></div>
+        <div #editorAnchor class="editor"></div>
     </div>
   `
 })

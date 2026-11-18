@@ -14,18 +14,32 @@
 
 /* Ace Text Editor */
 
-.paragraph-editor {
+.editor-container {
+  padding: 0 24px;
+  margin-bottom: 16px;
+}
+
+.editor {
   border: 2px solid var(--grey-400);
-  border-radius: 5px;
+  border-radius: 5px 0 5px 5px;
   pre {
     margin-bottom: 0;
     border-radius: 2px; /* fills the gap between bg and border */
   }
 }
 
-.dark-mode .paragraph-editor {
+.dark-mode .editor {
   border: 2px solid var(--dm-grey-500);
 }
+
+.editor-options {
+  margin-bottom: -2px; /* negates the border size value */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 2px solid var(--grey-400);
+}
+
+.dark-mode .editor-options { border-color: var(--dm-grey-500); }
 
 .ace_scroller {
   position: absolute;
@@ -171,7 +185,7 @@
   border-left: 4px solid #E67E22 !important;
 }
 
-.paragraph .ace_print-margin {
+.ace_print-margin {
   background: none !important;
 }
 

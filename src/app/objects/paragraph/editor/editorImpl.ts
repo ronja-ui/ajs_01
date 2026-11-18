@@ -88,7 +88,7 @@ export class EditorImpl implements Editor {
       this._syntaxLanguageSelectRule
     ];
     const preElement = document.createElement('pre');
-    preElement.classList.add('editor-container');
+    preElement.classList.add('editor-content');
     this._editor = ace.edit(preElement);
     this._editorStyle = new EditorStyleImpl(this._editor, this, paragraphState);
     this._printSignal = signal(new RenderNodeImpl(RegisteredComponents.EDITOR_VIEW, computed(() => ({
