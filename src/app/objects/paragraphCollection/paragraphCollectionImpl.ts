@@ -70,12 +70,20 @@ export class ParagraphCollectionImpl implements ParagraphCollection {
     this.initializeParagraphs(notebookState, this._paragraphs);
     this._renderNode = signal(new RenderNodeImpl(RegisteredComponents.PARAGRAPH_COLLECTION_VIEW, computed(() => ({
       paragraphs: Array.from(this._paragraphs().values()).map(paragraph => paragraph.print()()),
+      addParagraphCallback:(index:number) => this.insertParagraphRequest(index),
     }))));
     this._responseEvents = {
       'PARAGRAPH':(webSocketResponse) => this.handleParagraphResponse(webSocketResponse),
       'PARAGRAPH_ADDED': (webSocketResponse) => this.handleParagraphAddedResponse(webSocketResponse),
       'PARAGRAPH_REMOVED': (webSocketResponse) => this.handleParagraphRemovedResponse(webSocketResponse)
     };
+  }
+
+  private insertParagraphRequest(index:number) {
+    this._requestable.request({
+      op: 'INSERT_PARAGRAPH',
+      data: {index: index}
+    });
   }
 
   print(): Signal<RenderNode> {

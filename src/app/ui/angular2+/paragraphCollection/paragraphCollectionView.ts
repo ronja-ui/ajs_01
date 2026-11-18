@@ -46,18 +46,24 @@
 import {Component, input} from '@angular/core';
 import {RenderNode} from '../../../objects/rendering/renderNode/renderNode';
 import {RenderNodeRootView} from '../renderNodeRoot/renderNodeRootView';
+import {InsertParagraphView} from './insertParagraph/insertParagraphView';
 
 @Component({
   selector: 'paragraph-collection',
   imports: [
-    RenderNodeRootView
+    RenderNodeRootView,
+    InsertParagraphView
   ],
   template: `
-    @for(paragraph of paragraphs(); track $index){
-      <render-node-host [renderNode]="paragraph"></render-node-host>
-    }
+      @for(paragraph of paragraphs(); track $index){
+        <insert-paragraph [addParagraphCallback]="addParagraphCallback()" [index]="$index"></insert-paragraph>
+        <render-node-host [renderNode]="paragraph"></render-node-host>
+      }
+      @let index = paragraphs().length;
+      <insert-paragraph [addParagraphCallback]="addParagraphCallback()" [index]="index"></insert-paragraph>
   `
 })
 export class ParagraphCollectionView {
   paragraphs = input.required<RenderNode[]>();
+  addParagraphCallback = input.required<(index:number) => void>();
 }
