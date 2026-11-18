@@ -61,7 +61,7 @@ import {ActionBarView} from './actionBar/actionBarView';
       <div class="paragraph-title-container ms-auto d-flex align-items-center py-2">
         <render-node-host [renderNode]="title()"></render-node-host>
         <render-node-host [renderNode]="actions().actions().removeParagraph"></render-node-host>
-        <p class="fw-light ms-auto">ID: {{paragraphId()}}</p>
+        <p class="paragraph-id ms-auto">ID: {{paragraphId()}}</p>
       </div>
       <render-node-host [renderNode]="editor()"></render-node-host>
       <action-bar [actions]="actions()"></action-bar>
