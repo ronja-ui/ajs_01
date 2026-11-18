@@ -45,7 +45,6 @@
  */
 import {Printable} from '../../rendering/printable/printable';
 import {Output} from '../../output/output';
-import {Editor} from '../editor/editor';
 import {computed, signal, Signal} from '@angular/core';
 import {RenderNode} from '../../rendering/renderNode/renderNode';
 import {RenderNodeImpl} from '../../rendering/renderNode/renderNodeImpl';

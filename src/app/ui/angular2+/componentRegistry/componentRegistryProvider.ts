@@ -68,6 +68,9 @@ import {StartExecutionView} from '../paragraph/execution/startExecutionView';
 import {CancelExecutionView} from '../paragraph/execution/cancelExecutionView';
 import {ExecutionStatusView} from '../paragraph/execution/executionStatusView';
 import {TitleView} from '../paragraph/title/titleView';
+import {ClearOutputView} from '../paragraph/actions/clearOutput/clearOutputView';
+import {CopyParagraphView} from '../paragraph/actions/copyParagraph/copyParagraphView';
+import {ParagraphLinkView} from '../paragraph/actions/paragraphLink/paragraphLinkView';
 
 export const ComponentRegistryProvider: Provider = {
   provide: COMPONENT_REGISTRY,
@@ -93,6 +96,9 @@ export const ComponentRegistryProvider: Provider = {
     [RegisteredComponents.EXECUTION_STATUS_VIEW, ExecutionStatusView],
     [RegisteredComponents.START_EXECUTION_VIEW, StartExecutionView],
     [RegisteredComponents.CANCEL_EXECUTION_VIEW, CancelExecutionView],
-    [RegisteredComponents.TITLE_VIEW, TitleView]
+    [RegisteredComponents.TITLE_VIEW, TitleView],
+    [RegisteredComponents.CLEAR_OUTPUT_VIEW, ClearOutputView],
+    [RegisteredComponents.COPY_PARAGRAPH_VIEW, CopyParagraphView],
+    [RegisteredComponents.PARAGRAPH_LINK_VIEW, ParagraphLinkView]
   ])
 };
