@@ -47,7 +47,6 @@ import {Component, input} from '@angular/core';
 import {RenderNode} from '../../../objects/rendering/renderNode/renderNode';
 import {RenderNodeRootView} from '../renderNodeRoot/renderNodeRootView';
 import {Paragraph} from '../../../objects/paragraph/paragraph';
-import {RemoveParagraphView} from './removeParagraph/removeParagraphView';
 import {Actions} from '../../../objects/paragraph/actions/actions';
 import {ActionBarView} from './actionBar/actionBarView';
 
@@ -55,14 +54,13 @@ import {ActionBarView} from './actionBar/actionBarView';
   selector: 'paragraph',
   imports: [
     RenderNodeRootView,
-    RemoveParagraphView,
     ActionBarView
   ],
   template: `
     <div class="paragraph-box" [id]="paragraph().id()">
       <div class="ms-auto d-flex align-items-center py-2">
         <render-node-host [renderNode]="title()"></render-node-host>
-        <remove-paragraph [paragraph]="paragraph()"></remove-paragraph>
+        <render-node-host [renderNode]="actions().actions().removeParagraph"></render-node-host>
         <p class="fw-light ms-auto">ID: {{paragraph().id()}}</p>
       </div>
       <render-node-host [renderNode]="editor()"></render-node-host>

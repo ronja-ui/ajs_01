@@ -58,6 +58,7 @@ export class ActionsImpl implements Actions {
   private readonly _clearOutput: RenderNode;
   private readonly _copyParagraph:RenderNode;
   private readonly _paragraphLink:RenderNode;
+  private readonly _removeParagraph:RenderNode;
 
   constructor(
     execution:Execution,
@@ -71,11 +72,21 @@ export class ActionsImpl implements Actions {
       disable:execution.executionIsOngoing()()
     })));
     this._copyParagraph = new RenderNodeImpl(RegisteredComponents.COPY_PARAGRAPH_VIEW, computed(() => ({
-      copyParagraphCallback: () => paragraph.copy(),
+      copyParagraphCallback: () => paragraph.request({
+        op:'COPY_PARAGRAPH',
+        data:{}
+      }),
       disable:execution.executionIsOngoing()()
     })));
     this._paragraphLink = new RenderNodeImpl(RegisteredComponents.PARAGRAPH_LINK_VIEW, computed(() => ({
       paragraphId:paragraph.id()
+    })));
+    this._removeParagraph = new RenderNodeImpl(RegisteredComponents.REMOVE_PARAGRAPH_VIEW, computed(() => ({
+      removeParagraphCallback:() => paragraph.request({
+        op:'PARAGRAPH_REMOVE',
+        data:{}
+      }),
+      disable:execution.executionIsOngoing()()
     })));
   }
 
@@ -85,13 +96,15 @@ export class ActionsImpl implements Actions {
     clearOutput:RenderNode,
     copyParagraph:RenderNode,
     paragraphLink:RenderNode,
+    removeParagraph:RenderNode,
   } {
     return {
       executor: this._executor,
       executionStatus:this._executionStatus,
       clearOutput: this._clearOutput,
       copyParagraph: this._copyParagraph,
-      paragraphLink: this._paragraphLink
+      paragraphLink: this._paragraphLink,
+      removeParagraph:this._removeParagraph
     };
   }
 

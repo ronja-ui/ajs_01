@@ -44,7 +44,7 @@
  * a licensee so wish it.
  */
 import {Component, ElementRef, input, OnDestroy, ViewChild} from '@angular/core';
-import {Paragraph} from '../../../../objects/paragraph/paragraph';
+import {Paragraph} from '../../../../../objects/paragraph/paragraph';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Modal} from 'bootstrap';
 
@@ -55,7 +55,8 @@ import {Modal} from 'bootstrap';
   ],
   template: `
     <button class="btn btn-link btn-sm"
-            (click)="openRemoveParagraphDialog()">
+            (click)="openRemoveParagraphDialog()"
+            [disabled]="disable()">
       <i class="fa-solid fa-trash-can"
          title="Clear output">
       </i>
@@ -81,7 +82,8 @@ import {Modal} from 'bootstrap';
   `
 })
 export class RemoveParagraphView implements OnDestroy {
-  paragraph = input.required<Paragraph>();
+  removeParagraphCallback = input.required<() => void>();
+  disable = input.required<boolean>();
 
   @ViewChild('confirmRemoveParagraph') confirmRemoveParagraph!: ElementRef<HTMLDivElement>;
 
@@ -97,7 +99,7 @@ export class RemoveParagraphView implements OnDestroy {
   }
 
   removeAndClose():void{
-    this.paragraph().remove();
+    this.removeParagraphCallback()();
     this.closeRemoveParagraphDialog();
   }
 

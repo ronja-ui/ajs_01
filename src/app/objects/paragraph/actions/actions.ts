@@ -56,5 +56,6 @@ export interface Actions {
     clearOutput:RenderNode,
     copyParagraph:RenderNode,
     paragraphLink:RenderNode,
+    removeParagraph:RenderNode,
   }
 }

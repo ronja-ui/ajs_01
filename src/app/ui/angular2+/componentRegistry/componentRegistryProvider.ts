@@ -71,6 +71,7 @@ import {TitleView} from '../paragraph/title/titleView';
 import {ClearOutputView} from '../paragraph/actions/clearOutput/clearOutputView';
 import {CopyParagraphView} from '../paragraph/actions/copyParagraph/copyParagraphView';
 import {ParagraphLinkView} from '../paragraph/actions/paragraphLink/paragraphLinkView';
+import {RemoveParagraphView} from '../paragraph/actions/removeParagraph/removeParagraphView';
 
 export const ComponentRegistryProvider: Provider = {
   provide: COMPONENT_REGISTRY,
@@ -99,6 +100,7 @@ export const ComponentRegistryProvider: Provider = {
     [RegisteredComponents.TITLE_VIEW, TitleView],
     [RegisteredComponents.CLEAR_OUTPUT_VIEW, ClearOutputView],
     [RegisteredComponents.COPY_PARAGRAPH_VIEW, CopyParagraphView],
-    [RegisteredComponents.PARAGRAPH_LINK_VIEW, ParagraphLinkView]
+    [RegisteredComponents.PARAGRAPH_LINK_VIEW, ParagraphLinkView],
+    [RegisteredComponents.REMOVE_PARAGRAPH_VIEW, RemoveParagraphView],
   ])
 };
