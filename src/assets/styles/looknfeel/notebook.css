@@ -580,20 +580,6 @@
 
 /* DPL */
 
-.log-message {
-  font-family: 'Roboto Mono', monospace;
-  color: var(--dm-grey-500);
-  word-break: break-all;
-}
-
-.dark-mode .log-message {
-  color: var(--tertiary-300);
-}
-
-.log-message h3 {
-  font-size: 14px;
-}
-
 .add-info p {
   margin-bottom: 5px;
 }
