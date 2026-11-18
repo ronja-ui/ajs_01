@@ -79,13 +79,6 @@ paragraph {
     margin-bottom: 16px;
     border-top: 1px solid var(--grey-400);
     border-bottom: 1px solid var(--grey-400);
-    .dropdown-menu .drop-icon {
-      width: 20px;
-      display: inline-block;
-      text-align: center;
-      color: var(--grey-600);
-      margin-right: 5px;
-    }
     .rotate-transform {
       transform: rotate(-90deg);
     }
@@ -105,10 +98,19 @@ paragraph {
     li {
       color: var(--dm-grey-100);
     }
-    .dropdown-menu .drop-icon {
-      color: var(--dm-grey-300);
-    }
   }
+}
+
+.dropdown-menu .drop-icon {
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+  color: var(--grey-600);
+  margin-right: 5px;
+}
+
+.dark-mode .dropdown-menu .drop-icon {
+  color: var(--dm-grey-300);
 }
 
 .paragraph-title-container {
