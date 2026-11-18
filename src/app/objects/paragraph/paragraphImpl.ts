@@ -58,7 +58,6 @@ import {WebSocketRequestWithField} from '../webSocket/request/webSocketRequestWi
 import {Requestable} from '../channel/requestable';
 import {EditorImpl} from './editor/editorImpl';
 import {Editor} from './editor/editor';
-import {ActionBar} from './actionBar/actionBar';
 import {DplLogImpl} from './dplLog/dplLogImpl';
 import {DplLog} from './dplLog/dplLog';
 import {ExecutionImpl} from './execution/executionImpl';
