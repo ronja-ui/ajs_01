@@ -68,6 +68,14 @@ describe('Paragraph', () => {
     expect(renderNode.isStub()).toBe(false);
   });
 
+  it('Should print paragraphId', () => {
+    requestable = new FakeChannel();
+    const paragraphState = new ServerParagraphFakeImpl().paragraphState();
+    paragraph = new ParagraphImpl(requestable, new WebSocketPayloadImpl(paragraphState));
+    const paragraphId = paragraph.print()().inputs()()['paragraphId'];
+    expect(paragraphId).toBeDefined();
+  });
+
   it('Should print Editor', () => {
     requestable = new FakeChannel();
     const paragraphState = new ServerParagraphFakeImpl().paragraphState();

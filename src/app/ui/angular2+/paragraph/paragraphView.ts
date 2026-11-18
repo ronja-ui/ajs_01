@@ -57,11 +57,11 @@ import {ActionBarView} from './actionBar/actionBarView';
     ActionBarView
   ],
   template: `
-    <div class="paragraph-box" [id]="paragraph().id()">
-      <div class="paragraph-title-container d-flex align-items-center">
+    <div class="paragraph-box" [id]="paragraphId()">
+      <div class="ms-auto d-flex align-items-center py-2">
         <render-node-host [renderNode]="title()"></render-node-host>
         <render-node-host [renderNode]="actions().actions().removeParagraph"></render-node-host>
-        <p class="paragraph-id ms-auto">ID: {{paragraph().id()}}</p>
+        <p class="fw-light ms-auto">ID: {{paragraphId()}}</p>
       </div>
       <render-node-host [renderNode]="editor()"></render-node-host>
       <action-bar [actions]="actions()"></action-bar>
@@ -71,7 +71,7 @@ import {ActionBarView} from './actionBar/actionBarView';
   `
 })
 export class ParagraphView {
-  paragraph = input.required<Paragraph>();
+  paragraphId = input.required<string>();
   title = input.required<RenderNode>();
   editor = input.required<RenderNode>();
   actions = input.required<Actions>();

@@ -94,7 +94,7 @@ export class ParagraphImpl implements Paragraph {
     this._title = title;
     const actions = new ActionsImpl(this._execution, this._output, this);
     this._renderNode = signal(new RenderNodeImpl(RegisteredComponents.PARAGRAPH_VIEW, computed(() => ({
-      paragraph:this,
+      paragraphId:this.id(),
       title:this._title.print()(),
       editor:this._editor.print()(),
       actions: actions,
