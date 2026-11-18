@@ -90,12 +90,12 @@ describe('Paragraph', () => {
     expect(responseSpy).toHaveBeenCalledExactlyOnceWith(response);
   });
 
-  it('Should print ActionBar', () => {
+  it('Should print Actions', () => {
     requestable = new FakeChannel();
     const paragraphState = new ServerParagraphFakeImpl().paragraphState();
     paragraph = new ParagraphImpl(requestable, new WebSocketPayloadImpl(paragraphState));
-    const actionBar = paragraph.print()().inputs()()['actionBar'];
-    expect(actionBar).toBeDefined();
+    const actions = paragraph.print()().inputs()()['actions'];
+    expect(actions).toBeDefined();
   });
 
   it('Should print Output', () => {

@@ -50,12 +50,12 @@ import {RenderNodeFake} from '../../renderNode/renderNodeFake';
 
 export class ExecutionFake implements Execution {
   private readonly _executionIsOngoing:Signal<boolean>;
-  private readonly _executionStatus:Signal<RenderNode>;
+  private readonly _executionStatus:RenderNode;
   private readonly _executor:Signal<RenderNode>;
 
   constructor() {
     this._executionIsOngoing = signal(false);
-    this._executionStatus = signal(new RenderNodeFake());
+    this._executionStatus = new RenderNodeFake();
     this._executor = signal(new RenderNodeFake());
   }
 
@@ -63,7 +63,7 @@ export class ExecutionFake implements Execution {
     return this._executionIsOngoing;
   }
 
-  executionStatus(): Signal<RenderNode> {
+  executionStatus(): RenderNode {
     return this._executionStatus;
   }
 
