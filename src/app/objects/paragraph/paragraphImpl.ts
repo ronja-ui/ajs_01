@@ -150,24 +150,6 @@ export class ParagraphImpl implements Paragraph {
     }
   }
 
-  copy():void{
-    this._requestable.request({
-      op:'COPY_PARAGRAPH',
-      data:{
-        paragraphId:this.id(),
-      }
-    });
-  }
-
-  remove():void{
-    this._requestable.request({
-      op:'PARAGRAPH_REMOVE',
-      data:{
-        paragraphId:this.id(),
-      }
-    });
-  }
-
   private titleValue(paragraphState:WebSocketPayload):string {
     return paragraphState.propertyExists('title') ? paragraphState.stringProperty('title') : '';
   }

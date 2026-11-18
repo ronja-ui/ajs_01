@@ -44,7 +44,6 @@
  * a licensee so wish it.
  */
 import {Component, ElementRef, input, OnDestroy, ViewChild} from '@angular/core';
-import {Paragraph} from '../../../../../objects/paragraph/paragraph';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Modal} from 'bootstrap';
 

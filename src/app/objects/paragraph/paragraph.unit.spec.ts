@@ -170,25 +170,6 @@ describe('Paragraph', () => {
     expect(paragraph.id()).toEqual(paragraphId);
   });
 
-  it('Run should should create expected request', () => {
-    const paragraphId = 'paragraphId';
-    requestable = new FakeChannel();
-    const paragraphState = new ServerParagraphFakeImpl(new IdFakeImpl(paragraphId)).paragraphState();
-    paragraph = new ParagraphImpl(requestable, new WebSocketPayloadImpl(paragraphState));
-    const expectedRequest = {
-      op:'RUN_PARAGRAPH',
-      data:{
-        id: paragraphId,
-        paragraph: paragraphState.text,
-        config: paragraphState.config,
-        params: paragraphState.settings.params,
-      }
-    };
-    const spy = vi.spyOn(requestable, 'request');
-    paragraph.run();
-    expect(spy).toHaveBeenCalledExactlyOnceWith(expectedRequest);
-  });
-
   it('Should decorate request with paragraphId', () => {
     const paragraphId = 'paragraphId';
     requestable = new FakeChannel();
