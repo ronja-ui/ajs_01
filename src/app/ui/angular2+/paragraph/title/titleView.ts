@@ -67,12 +67,16 @@ import {FormsModule} from '@angular/forms';
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5>Rename paragraph</h5>
+            <h5 class="modal-title">Rename paragraph</h5>
           </div>
           <div class="modal-body">
-            <div class="d-flex align-items-center">
-              <label>Paragraph name</label>
-              <input class="ms-auto" [(ngModel)]="titleModel">
+            <div class="row">
+              <div class="col-auto">
+                <label class="col-form-label">Paragraph name</label>
+              </div>
+              <div class="col">
+                <input class="form-control" placeholder="Untitled" [(ngModel)]="titleModel">
+              </div>
             </div>
           </div>
           <div class="modal-footer">
